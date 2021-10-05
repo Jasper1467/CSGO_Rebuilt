@@ -20,14 +20,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client_dll\CBoneSnapshot.h" />
+    <ClInclude Include="client_dll\C_BaseAnimating.h" />
     <ClInclude Include="client_dll\C_CSPlayer.h" />
+    <ClInclude Include="engine_dll\CNetChan.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
     <ClInclude Include="mixed\mathlib.h" />
+    <ClInclude Include="mixed\StringStuff.h" />
     <ClInclude Include="mixed\Vectors.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\CBoneSnapshot.cpp" />
+    <ClCompile Include="client_dll\C_BaseAnimating.cpp" />
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
+    <ClCompile Include="engine_dll\CNetChan.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -120,6 +125,8 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

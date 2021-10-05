@@ -6,9 +6,14 @@
     <ClInclude Include="client_dll\C_CSPlayer.h" />
     <ClInclude Include="client_dll\CBoneSnapshot.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
+    <ClInclude Include="client_dll\C_BaseAnimating.h" />
+    <ClInclude Include="mixed\StringStuff.h" />
+    <ClInclude Include="engine_dll\CNetChan.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
     <ClCompile Include="client_dll\CBoneSnapshot.cpp" />
+    <ClCompile Include="client_dll\C_BaseAnimating.cpp" />
+    <ClCompile Include="engine_dll\CNetChan.cpp" />
   </ItemGroup>
 </Project>
