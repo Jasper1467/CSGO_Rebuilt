@@ -1,10 +1,10 @@
 #include "CNetChan.h"
-
-#define CONNECTION_PROBLEM_TIME 4.0f
-#define TICK_INTERVAL 0.25f
+#include <math.h>
 
 bool CNetChan::IsTimingOut()
 {
+	// F3 0F 10 81 5C 41 00 00
+
 	if (m_flTimeout == -1)
 		return false;
 
@@ -13,12 +13,16 @@ bool CNetChan::IsTimingOut()
 
 void CNetChan::SetChoked()
 {
+	// FF 41 18 FF 41 2C
+
 	m_nOutSequenceNr++;
 	m_nChokedPackets++;
 }
 
 void CNetChan::SetTimeout(float m_flSeconds, bool m_bForceExact)
 {
+	// 55 8B EC 80 7D 0C 00 F3 0F 10 4D 08
+
 	m_flTimeout = m_flSeconds;
 
 	if (m_bForceExact)
@@ -36,4 +40,11 @@ void CNetChan::SetTimeout(float m_flSeconds, bool m_bForceExact)
 	}
 	else
 		m_flTimeout = 3600.f;
+}
+
+float CNetChan::GetTimeSinceLastReceived()
+{
+	// 55 8B EC 51 F3 0F 10 81 0C 01 00 00
+
+	return fmaxf(net_time - m_flLastReceived, 0.0f);
 }

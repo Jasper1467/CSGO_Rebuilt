@@ -36,6 +36,7 @@ public:
 #define FLOW_AVG 0.75f
 
 #define NET_FRAMES_BACKUP 128
+#define NET_FRAMES_MASK (NET_FRAMES_BACKUP - 1)
 
 class CNetChan : INetChannel
 {
@@ -43,6 +44,7 @@ public:
     bool IsTimingOut();
     void SetChoked();
     void SetTimeout(float m_flSeconds, bool m_bForceExact);
+    float GetTimeSinceLastReceived();
 
     struct netframe_header_t
     {
@@ -50,7 +52,6 @@ public:
         bool m_bValid;
         float m_flLatency;
     };
-
 
     float m_flLastReceived; // this[67]
 	float m_flTimeout; // this[4183]

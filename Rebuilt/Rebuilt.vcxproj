@@ -21,7 +21,9 @@
   <ItemGroup>
     <ClInclude Include="client_dll\CBoneSnapshot.h" />
     <ClInclude Include="client_dll\C_BaseAnimating.h" />
+    <ClInclude Include="client_dll\C_BaseEntity.h" />
     <ClInclude Include="client_dll\C_CSPlayer.h" />
+    <ClInclude Include="engine_dll\cl_main.h" />
     <ClInclude Include="engine_dll\CNetChan.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
     <ClInclude Include="mixed\mathlib.h" />

@@ -9,6 +9,8 @@
     <ClInclude Include="client_dll\C_BaseAnimating.h" />
     <ClInclude Include="mixed\StringStuff.h" />
     <ClInclude Include="engine_dll\CNetChan.h" />
+    <ClInclude Include="client_dll\C_BaseEntity.h" />
+    <ClInclude Include="engine_dll\cl_main.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
