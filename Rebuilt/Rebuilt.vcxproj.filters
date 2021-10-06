@@ -11,11 +11,14 @@
     <ClInclude Include="engine_dll\CNetChan.h" />
     <ClInclude Include="client_dll\C_BaseEntity.h" />
     <ClInclude Include="engine_dll\cl_main.h" />
+    <ClInclude Include="client_dll\CCSGOPlayerAnimState.h" />
+    <ClInclude Include="mixed\Studio.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
     <ClCompile Include="client_dll\CBoneSnapshot.cpp" />
     <ClCompile Include="client_dll\C_BaseAnimating.cpp" />
     <ClCompile Include="engine_dll\CNetChan.cpp" />
+    <ClCompile Include="client_dll\CCSGOPlayerAnimState.cpp" />
   </ItemGroup>
 </Project>
