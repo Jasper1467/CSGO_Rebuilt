@@ -13,6 +13,8 @@
     <ClInclude Include="engine_dll\cl_main.h" />
     <ClInclude Include="client_dll\CCSGOPlayerAnimState.h" />
     <ClInclude Include="mixed\Studio.h" />
+    <ClInclude Include="mixed\CCSGOPlayerAnimState.h" />
+    <ClInclude Include="server_dll\CCSGOPlayerAnimState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />

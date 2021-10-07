@@ -1,59 +1,28 @@
 #pragma once
 
-#include "../mixed/Vectors.h"
-#include "../client_dll/C_BaseEntity.h"
-#include "../mixed/Studio.h"
 #include "../mixed/CCSGOPlayerAnimState.h"
+#include "../mixed/mathlib.h"
+#include "../mixed/Vectors.h"
 
-class C_BaseAnimating;
+class CBaseEntity;
+class CBaseCombatWeapon;
 
-class CCSPlayerAnimState : CBasePlayerAnimState
+struct CCSGOPlayerAnimState
 {
-public:
-
-};
-
-class CBasePlayerAnimState
-{
-public:
-	char pad0[24];
-	C_BaseAnimating* m_pOuter;
-};
-
-struct C_AnimationLayer
-{
-	float m_flLayerAnimtime;
-	float m_flLayerFadeOuttime;
-	CStudioHdr* m_pDispatchedStudioHdr;
-	Activities_t m_nDispatchedSrc;
-	Activities_t m_nDispatchedDst;
-	int m_nOrder;
-	int m_nSequence;
-	float m_flPrevCycle;
-	float m_flWeight;
-	float m_flWeightDeltaRate;
-	float m_flPlaybackRate;
-	float m_flCycle;
-	void* m_pOwner;
-	int m_nInvalidatePhysicsBits;
-};
-
-class CCSGOPlayerAnimState
-{
-public:
+	int* m_pAnimLayerOrder;
 	bool m_bFirstRunSinceInit;
-	char pad0[3];
+	char firstpad[3];
 	float m_flFlashedStartTime;
 	float m_flFlashedEndTime;
 	aimmatrix_transition_t m_StandWalkAim;
 	aimmatrix_transition_t m_StandRunAim;
 	aimmatrix_transition_t m_CrouchWalkAim;
 	int m_nModelIndex;
-	void* m_pBaseEntity;
-	void* m_pActiveWeapon;
-	void* m_pLastActiveWeapon;
+	CBaseEntity* pBaseEntity;
+	CBaseCombatWeapon* pActiveWeapon;
+	CBaseCombatWeapon* pLastActiveWeapon;
 	float m_flLastClientSideAnimationUpdateTime;
-	int m_nLastClientSideAnimationUpdateFramecount;
+	int32_t m_iLastClientSideAnimationUpdateFramecount;
 	float m_flLastClientSideAnimationUpdateTimeDelta;
 	float m_flEyeYaw;
 	float m_flEyePitch;
@@ -62,17 +31,17 @@ public:
 	float m_flCurrentMoveDirGoalFeetDelta;
 	float m_flGoalMoveDirGoalFeetDelta;
 	float m_flFeetVelDirDelta;
-	float pad_0049;
+	float pad_0094;
 	float m_flFeetCycle;
 	float m_flFeetWeight;
-	float m_flUnknown2;
-	float m_flDuckAmount;
+	float m_fUnknown2;
+	float m_fDuckAmount;
 	float m_flHitGroundCycle;
 	float m_fUnknown3;
-	Vector m_vecOrigin;
-	Vector m_vecLastOrigin;
-	Vector m_vecVelocity;
-	Vector m_vecVelocityNormalized;
+	Vector m_vOrigin;
+	Vector m_vLastOrigin;
+	Vector m_vVelocity;
+	Vector m_vVelocityNormalized;
 	Vector m_vecLastAcceleratingVelocity;
 	float m_flSpeed;
 	float m_flAbsVelocityZ;
@@ -82,9 +51,13 @@ public:
 	float m_flTimeSinceStartedMoving;
 	float m_flTimeSinceStoppedMoving;
 	bool m_bOnGround;
-	bool m_bLanding;
+	bool m_bJumping;
 	char pad_010A[2];
 	float m_flNextLowerBodyYawUpdateTime;
+	bool m_bInParachute;
+	bool m_bInHitGroundAnimation;
+	char PAD_FUCKER[2];
+	int m_iUnknownIntBlah;
 	float m_flDurationInAir;
 	float m_flLeftGroundHeight;
 	float m_flHitGroundWeight;
@@ -98,7 +71,9 @@ public:
 	float m_flLadderWeight;
 	float m_flLadderSpeed;
 	bool m_bNotRunning;
-	char pad_0135[3];
+	bool m_bDefusing;
+	bool m_bPlantingBomb;
+	char pad_0135;
 	bool m_bInBalanceAdjust;
 	char pad_0141[3];
 	void* m_ActivityModifiers;
@@ -120,4 +95,20 @@ public:
 	char m_bStrafingPad[3];
 	float m_flStrafeChangeCycle;
 	int m_nStrafeSequence;
+	bool m_bUnknownBool__;
+	bool m_bIsAccelerating;
+	char pad_01AE[2];
+	animstate_pose_param_cache_t m_arrPoseParameters[20];
+	bool m_bDeploying;
+	char pad__[3];
+	int m_iUnknownInt__;
+	float m_flGoalRunningSpeed;
+	int m_iMoveState;
+	float m_flMovePlaybackRate;
+	float m_flUnknownFL0;
+	float m_flMinYaw;
+	float m_flMaxYaw;
+	float m_flMinPitch;
+	float m_flMaxPitch;
+	int m_iAnimsetVersion;
 };

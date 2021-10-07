@@ -26,11 +26,13 @@
     <ClInclude Include="client_dll\C_CSPlayer.h" />
     <ClInclude Include="engine_dll\cl_main.h" />
     <ClInclude Include="engine_dll\CNetChan.h" />
+    <ClInclude Include="mixed\CCSGOPlayerAnimState.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
     <ClInclude Include="mixed\mathlib.h" />
     <ClInclude Include="mixed\StringStuff.h" />
     <ClInclude Include="mixed\Studio.h" />
     <ClInclude Include="mixed\Vectors.h" />
+    <ClInclude Include="server_dll\CCSGOPlayerAnimState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\CBoneSnapshot.cpp" />
