@@ -46,6 +46,6 @@ struct CGlobalVars : CGlobalVarsBase
 	void* m_pEdicts;
 };
 
-// Usesing these as interfaces
+// Using these as interfaces
 CGlobalVarsBase* g_pGlobals;
 CGlobalVars* g_pServerGlobals;

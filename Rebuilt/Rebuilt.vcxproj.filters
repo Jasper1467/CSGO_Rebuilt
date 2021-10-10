@@ -15,6 +15,8 @@
     <ClInclude Include="mixed\Studio.h" />
     <ClInclude Include="mixed\CCSGOPlayerAnimState.h" />
     <ClInclude Include="server_dll\CCSGOPlayerAnimState.h" />
+    <ClInclude Include="engine_dll\CEngineClient.h" />
+    <ClInclude Include="engine_dll\CClientState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
@@ -22,5 +24,6 @@
     <ClCompile Include="client_dll\C_BaseAnimating.cpp" />
     <ClCompile Include="engine_dll\CNetChan.cpp" />
     <ClCompile Include="client_dll\CCSGOPlayerAnimState.cpp" />
+    <ClCompile Include="engine_dll\CEngineClient.cpp" />
   </ItemGroup>
 </Project>
