@@ -4,6 +4,13 @@
 #include "../client_dll/C_BaseEntity.h"
 #include "../mixed/Studio.h"
 #include "../mixed/CCSGOPlayerAnimState.h"
+#include "../engine_dll/CEngineClient.h"
+
+inline bool IsPreCrouchUpdateDemo()
+{
+	return g_pEngineClient->IsHLTV() || (*(unsigned __int8(__thiscall**)(int))(*(_DWORD*)g_pEngineClient + 328))(g_pEngineClient))
+		&& (*(int(__thiscall**)(int))(*(_DWORD*)g_pEngineClient + 904))(g_pEngineClient) <= 13546;
+}
 
 class C_BaseAnimating;
 

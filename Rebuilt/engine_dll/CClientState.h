@@ -3,6 +3,18 @@
 #include "../mixed/Vectors.h"
 #include "CNetChan.h"
 
+enum SingonState_t
+{
+	SIGNONSTATE_NONE = 0x0,
+	SIGNONSTATE_CHALLENGE = 0x1,
+	SIGNONSTATE_CONNECTED = 0x2,
+	SIGNONSTATE_NEW = 0x3,
+	SIGNONSTATE_PRESPAWN = 0x4,
+	SIGNONSTATE_SPAWN = 0x5,
+	SIGNONSTATE_FULL = 0x6,
+	SIGNONSTATE_CHANGELEVEL = 0x7,
+};
+
 struct CClockDriftMgr
 {
 	float m_ClockOffsets[16];
