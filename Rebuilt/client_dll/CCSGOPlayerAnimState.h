@@ -1,10 +1,12 @@
 #pragma once
 
 #include "../mixed/Vectors.h"
-#include "../client_dll/C_BaseEntity.h"
+#include "../client_dll/C_CSPlayer.h"
 #include "../mixed/Studio.h"
 #include "../mixed/CCSGOPlayerAnimState.h"
 #include "../engine_dll/CEngineClient.h"
+#include "C_BaseEntity.h"
+#include "C_BaseAnimating.h"
 
 inline bool IsPreCrouchUpdateDemo()
 {
@@ -12,19 +14,17 @@ inline bool IsPreCrouchUpdateDemo()
 		&& (*(int(__thiscall**)(int))(*(_DWORD*)g_pEngineClient + 904))(g_pEngineClient) <= 13546;
 }
 
-class C_BaseAnimating;
-
-class CCSPlayerAnimState : CBasePlayerAnimState
-{
-public:
-
-};
-
 class CBasePlayerAnimState
 {
 public:
 	char pad0[24];
 	C_BaseAnimating* m_pOuter;
+};
+
+class CCSPlayerAnimState : CBasePlayerAnimState
+{
+public:
+
 };
 
 struct C_AnimationLayer
@@ -45,20 +45,23 @@ struct C_AnimationLayer
 	int m_nInvalidatePhysicsBits;
 };
 
+class C_BaseCombatWeapon;
+
 class CCSGOPlayerAnimState
 {
 public:
 	bool m_bFirstRunSinceInit;
-	char pad0[3];
-	float m_flFlashedStartTime;
-	float m_flFlashedEndTime;
+	bool m_bFirstFootPlantSinceInit;
+	int m_nLastUpdateFrame;
+	float m_flEyePositionSmoothLerp;
+	float m_flStrafeChangeWeightSmoothFalloff;
 	aimmatrix_transition_t m_StandWalkAim;
 	aimmatrix_transition_t m_StandRunAim;
 	aimmatrix_transition_t m_CrouchWalkAim;
 	int m_nModelIndex;
-	void* m_pBaseEntity;
-	void* m_pActiveWeapon;
-	void* m_pLastActiveWeapon;
+	C_CSPlayer* m_pPlayer;
+	C_BaseCombatWeapon* m_pActiveWeapon;
+	C_BaseCombatWeapon* m_pLastActiveWeapon;
 	float m_flLastClientSideAnimationUpdateTime;
 	int m_nLastClientSideAnimationUpdateFramecount;
 	float m_flLastClientSideAnimationUpdateTimeDelta;
@@ -75,7 +78,7 @@ public:
 	float m_flUnknown2;
 	float m_flDuckAmount;
 	float m_flHitGroundCycle;
-	float m_fUnknown3;
+	float m_flMoveWeight;
 	Vector m_vecOrigin;
 	Vector m_vecLastOrigin;
 	Vector m_vecVelocity;
@@ -102,25 +105,25 @@ public:
 	float m_flDuckRate;
 	bool m_bOnLadder;
 	char pad_0128[3];
-	float m_flLadderWeight;
-	float m_flLadderSpeed;
+	float m_flLandAnimMultiplier;
+	float m_flWalkToRunTransition;
 	bool m_bNotRunning;
 	char pad_0135[3];
 	bool m_bInBalanceAdjust;
 	char pad_0141[3];
 	void* m_ActivityModifiers;
-	int gap148[1];
+	float m_flLadderWeight;
+	int m_flLadderSpeed;
 	float m_flTimeOfLastInjury;
 	float m_flLastSetupLeanCurtime;
 	Vector m_vecLastSetupLeanVelocity;
 	Vector m_vecSetupLeanVelocityDelta;
 	Vector m_vecSetupLeanVelocityInterpolated;
 	float m_flLeanWeight;
-	Vector m_vecAcceleration;
-	bool m_bFlashed;
-	char m_bFlashedPad[3];
+	Vector m_vecTargetAcceleration;
+	char pad_qzdqzdzqd[3];
 	float m_flStrafeWeight;
-	int m_iUnknownint3;
+	Vector m_vecAcceleration;
 	float m_flStrafeCycle;
 	float m_flStrafeChangeWeight;
 	bool m_bStrafing;
