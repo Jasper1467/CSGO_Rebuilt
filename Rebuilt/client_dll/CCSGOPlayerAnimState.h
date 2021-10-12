@@ -50,14 +50,17 @@ class C_BaseCombatWeapon;
 class CCSGOPlayerAnimState
 {
 public:
+	void* vtable;
 	bool m_bFirstRunSinceInit;
 	bool m_bFirstFootPlantSinceInit;
-	int m_nLastUpdateFrame;
+	char pad[2];
+	int m_nUnknownInt;
 	float m_flEyePositionSmoothLerp;
 	float m_flStrafeChangeWeightSmoothFalloff;
 	aimmatrix_transition_t m_StandWalkAim;
 	aimmatrix_transition_t m_StandRunAim;
 	aimmatrix_transition_t m_CrouchWalkAim;
+	int m_nUnknownArray[3];
 	int m_nModelIndex;
 	C_CSPlayer* m_pPlayer;
 	C_BaseCombatWeapon* m_pActiveWeapon;
@@ -67,10 +70,10 @@ public:
 	float m_flLastClientSideAnimationUpdateTimeDelta;
 	float m_flEyeYaw;
 	float m_flEyePitch;
-	float m_flGoalFeetYaw;
+	float m_flMoveYaw;
 	float m_flCurrentFeetYaw;
-	float m_flCurrentMoveDirGoalFeetDelta;
-	float m_flGoalMoveDirGoalFeetDelta;
+	float m_flMoveYawIdeal;
+	float m_flMoveYawCurrentToIdeal;
 	float m_flFeetVelDirDelta;
 	float pad_0049;
 	float m_flFeetCycle;
@@ -102,7 +105,7 @@ public:
 	bool m_bLandedOnGroundThisFrame;
 	bool m_bLeftTheGroundThisFrame;
 	char pad_0120[2];
-	float m_flDuckRate;
+	float m_flInAirSmoothValue;
 	bool m_bOnLadder;
 	char pad_0128[3];
 	float m_flLandAnimMultiplier;
@@ -130,4 +133,7 @@ public:
 	char m_bStrafingPad[3];
 	float m_flStrafeChangeCycle;
 	int m_nStrafeSequence;
+	bool m_bUnknownBool__;
+	bool m_bIsAccelerating;
 };
+
