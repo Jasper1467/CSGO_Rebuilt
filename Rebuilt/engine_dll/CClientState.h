@@ -15,6 +15,21 @@ enum SingonState_t
 	SIGNONSTATE_CHANGELEVEL = 0x7,
 };
 
+class ClientClass;
+
+struct CEventInfo
+{
+	__int16 m_nClassId;
+	float m_flFireDelay;
+	const void* m_pSendTable;
+	const ClientClass* m_pClientClass;
+	int m_nBits;
+	unsigned __int8* m_pData;
+	int m_nFlags;
+	char pad[24];
+	CEventInfo* m_pNextEvent;
+};
+
 struct CClockDriftMgr
 {
 	float m_ClockOffsets[16];
@@ -26,31 +41,31 @@ struct CClockDriftMgr
 class CBaseClientState
 {
 public:
-	char pad000[156];
+	char pad_0000[156];
 	INetChannel* m_pNetChannel;
 	int m_nChallengeNr;
-	char pad001[4];
-	double m_dbConnectTime;
-	int m_nRetryNumber;
-	char pad002[84];
+	char pad_00A4[100];
 	int m_nSignonState;
-	char pad003[4];
-	double m_flNextCmdTime;
+	double m_dbNextCmdTime;
 	int m_nServerCount;
 	int m_nCurrentSequence;
-	char pad004[8];
+	int musor_pads[2];
 	CClockDriftMgr m_ClockDriftMgr;
 	int m_nDeltaTick;
-	char pad005[4];
+	char paused_align[4];
 	int m_nViewEntity;
 	int m_nPlayerSlot;
 	bool m_bPaused;
-	char pad006[3];
+	char bruh[3];
 	char m_szLevelName[260];
-	char m_szLevelNameShort[40];
-	char pad007[212];
+	char m_szLevelNameShort[80];
+	char m_szGroupName[80];
+	char pad_032[92];
 	int m_nMaxClients;
-	char pad008[18836];
+	char pad_0314[18828];
+	float m_nLastServerTickTime;
+	bool m_bInSimulation;
+	char pad_4C9D[3];
 };
 
 class CClientState : public CBaseClientState
@@ -70,7 +85,7 @@ public:
 	char pad009[75];
 	QAngle m_angViewAngles;
 	char pad010[204];
-	void* m_pEvents;
+	CEventInfo* m_pEvents;
 };
 
 // As interface

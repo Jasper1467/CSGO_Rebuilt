@@ -6,42 +6,46 @@
 
 class CBaseEntity;
 class CBaseCombatWeapon;
+class CCSPlayer;
 
-struct CCSGOPlayerAnimState
+class CCSGOPlayerAnimState
 {
-	int* m_pAnimLayerOrder;
+public:
+
+
+	int* m_pLayerOrderPreset;
 	bool m_bFirstRunSinceInit;
 	char firstpad[3];
-	float m_flFlashedStartTime;
-	float m_flFlashedEndTime;
+	float m_flFlashedAmountEaseOutStart;
+	float m_flFlashedAmountEaseOutEnd;
 	aimmatrix_transition_t m_StandWalkAim;
 	aimmatrix_transition_t m_StandRunAim;
 	aimmatrix_transition_t m_CrouchWalkAim;
 	int m_nModelIndex;
-	CBaseEntity* pBaseEntity;
-	CBaseCombatWeapon* pActiveWeapon;
-	CBaseCombatWeapon* pLastActiveWeapon;
+	CCSPlayer* m_pPlayer;
+	CBaseCombatWeapon* m_pActiveWeapon;
+	CBaseCombatWeapon* m_pLastActiveWeapon;
 	float m_flLastClientSideAnimationUpdateTime;
-	int32_t m_iLastClientSideAnimationUpdateFramecount;
+	int m_nLastClientSideAnimationUpdateFramecount;
 	float m_flLastClientSideAnimationUpdateTimeDelta;
 	float m_flEyeYaw;
 	float m_flEyePitch;
 	float m_flGoalFeetYaw;
 	float m_flCurrentFeetYaw;
-	float m_flCurrentMoveDirGoalFeetDelta;
+	float m_flMoveYawIdeal;
 	float m_flGoalMoveDirGoalFeetDelta;
-	float m_flFeetVelDirDelta;
+	float m_flMoveYawCurrentToIdeal;
 	float pad_0094;
 	float m_flFeetCycle;
 	float m_flFeetWeight;
 	float m_fUnknown2;
 	float m_fDuckAmount;
 	float m_flHitGroundCycle;
-	float m_fUnknown3;
-	Vector m_vOrigin;
-	Vector m_vLastOrigin;
-	Vector m_vVelocity;
-	Vector m_vVelocityNormalized;
+	float m_flMoveWeight;
+	Vector m_vecOrigin;
+	Vector m_vecLastOrigin;
+	Vector m_vecVelocity;
+	Vector m_vecVelocityNormalized;
 	Vector m_vecLastAcceleratingVelocity;
 	float m_flSpeed;
 	float m_flAbsVelocityZ;
@@ -65,11 +69,11 @@ struct CCSGOPlayerAnimState
 	bool m_bLandedOnGroundThisFrame;
 	bool m_bLeftTheGroundThisFrame;
 	char pad_0120[2];
-	float m_flDuckRate;
+	float m_flInAirSmoothValue;
 	bool m_bOnLadder;
 	char pad_0128[3];
-	float m_flLadderWeight;
-	float m_flLadderSpeed;
+	float m_flLandAnimMultiplier;
+	float m_flWalkToRunTransition;
 	bool m_bNotRunning;
 	bool m_bDefusing;
 	bool m_bPlantingBomb;
@@ -77,18 +81,19 @@ struct CCSGOPlayerAnimState
 	bool m_bInBalanceAdjust;
 	char pad_0141[3];
 	void* m_ActivityModifiers;
-	int gap148[1];
+	float m_flLadderWeight;
+	int m_flLadderSpeed;
 	float m_flTimeOfLastInjury;
 	float m_flLastSetupLeanCurtime;
 	Vector m_vecLastSetupLeanVelocity;
 	Vector m_vecSetupLeanVelocityDelta;
 	Vector m_vecSetupLeanVelocityInterpolated;
 	float m_flLeanWeight;
-	Vector m_vecAcceleration;
-	bool m_bFlashed;
-	char m_bFlashedPad[3];
+	Vector m_vecTargetAcceleration;
+	char m_anotherpad[3];
 	float m_flStrafeWeight;
-	int m_iUnknownint3;
+	bool m_bFlashed;
+	Vector m_vecAcceleration;
 	float m_flStrafeCycle;
 	float m_flStrafeChangeWeight;
 	bool m_bStrafing;
@@ -100,8 +105,7 @@ struct CCSGOPlayerAnimState
 	char pad_01AE[2];
 	animstate_pose_param_cache_t m_arrPoseParameters[20];
 	bool m_bDeploying;
-	char pad__[3];
-	int m_iUnknownInt__;
+	DWORD m_iUnknownInt__;
 	float m_flGoalRunningSpeed;
 	int m_iMoveState;
 	float m_flMovePlaybackRate;

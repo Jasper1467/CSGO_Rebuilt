@@ -70,7 +70,7 @@ public:
 	float m_flLastClientSideAnimationUpdateTimeDelta;
 	float m_flEyeYaw;
 	float m_flEyePitch;
-	float m_flMoveYaw;
+	float m_flGoalFeetYaw;
 	float m_flCurrentFeetYaw;
 	float m_flMoveYawIdeal;
 	float m_flMoveYawCurrentToIdeal;

@@ -1,0 +1,7 @@
+#pragma once
+
+#define ANIM_RELOAD_DURATION 0.75f
+
+#define ANIM_TOPSPEED_WALK 100.f
+#define ANIM_TOPSPEED_RUN 250.f
+#define ANIM_TOPSPEED_RUN_CROUCH 85.f

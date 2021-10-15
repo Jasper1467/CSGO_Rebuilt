@@ -35,11 +35,11 @@ struct animstate_pose_param_cache_t
 {
 	bool m_bInitialized;
 	char pad_01[3];
-	int32_t m_iPoseParameter;
+	int m_nIndex;
 	char* m_szPoseParameter;
 };
 
-enum AnimationLayers_t
+enum AnimationLayer_t
 {
 	LAYER_AIMMATRIX = 0x0,
 	LAYER_WEAPON_ACTION = 0x1,
@@ -56,3 +56,17 @@ enum AnimationLayers_t
 	LAYER_LEAN = 0xC,
 	LAYER_COUNT = 0xD,
 };
+
+enum AnimLayerFlag_t
+{
+	ANIM_LAYER_FLAG_ACTIVE = 0x1,
+	ANIM_LAYER_FLAG_AUTOKILL = 0x2,
+	ANIM_LAYER_FLAG_KILLME = 0x4,
+	ANIM_LAYER_FLAG_DONTRESTORE = 0x8,
+	ANIM_LAYER_FLAG_CHECKACCESS = 0x10,
+	ANIM_LAYER_FLAG_DYING = 0x20,
+	ANIM_LAYER_FLAG_NOEVENTS = 0x40,
+};
+
+#define ANIM_MAX_VELOCITY 260.f
+#define ANIM_DEPLOY_RATELIMIT 0.15f

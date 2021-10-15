@@ -17,6 +17,11 @@
     <ClInclude Include="server_dll\CCSGOPlayerAnimState.h" />
     <ClInclude Include="engine_dll\CEngineClient.h" />
     <ClInclude Include="engine_dll\CClientState.h" />
+    <ClInclude Include="server_dll\CBasePlayerAnimState.h" />
+    <ClInclude Include="mixed\CBasePlayerAnimState.h" />
+    <ClInclude Include="server_dll\CCSPlayerAnimState.h" />
+    <ClInclude Include="mixed\CCSPlayerAnimState.h" />
+    <ClInclude Include="server_dll\CTakeDamageInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
@@ -25,5 +30,6 @@
     <ClCompile Include="engine_dll\CNetChan.cpp" />
     <ClCompile Include="client_dll\CCSGOPlayerAnimState.cpp" />
     <ClCompile Include="engine_dll\CEngineClient.cpp" />
+    <ClCompile Include="server_dll\CTakeDamageInfo.cpp" />
   </ItemGroup>
 </Project>
