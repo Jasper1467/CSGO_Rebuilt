@@ -1,29 +1,29 @@
 #pragma once
 #include <cmath>
 
-inline float Approach(float m_flTarget, float m_flValue, float m_flSpeed)
+inline float Approach(float flTarget, float flValue, float flSpeed)
 {
-	float m_flDelta = m_flTarget - m_flValue;
+	float flDelta = flTarget - flValue;
 
-	if (m_flDelta > m_flSpeed)
-		m_flValue += m_flSpeed;
-	else if (m_flDelta < -m_flSpeed)
-		m_flValue -= m_flSpeed;
+	if (flDelta > flSpeed)
+		flValue += flSpeed;
+	else if (flDelta < -flSpeed)
+		flValue -= flSpeed;
 	else
-		m_flValue = m_flTarget;
+		flValue = flTarget;
 
-	return m_flValue;
+	return flValue;
 }
 
-inline float AngleNormalize(float m_flAngle)
+inline float AngleNormalize(float flAngle)
 {
-	m_flAngle = fmod(m_flAngle, 360.0f);
+	flAngle = fmod(flAngle, 360.0f);
 
-	if (m_flAngle > 180.0f)
-		m_flAngle -= 360.0f;
+	if (flAngle > 180.0f)
+		flAngle -= 360.0f;
 
-	if (m_flAngle < -180.0f)
-		m_flAngle += 360.0f;
+	if (flAngle < -180.0f)
+		flAngle += 360.0f;
 
-	return m_flAngle;
+	return flAngle;
 }

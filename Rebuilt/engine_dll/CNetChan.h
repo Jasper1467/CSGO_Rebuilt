@@ -43,7 +43,7 @@ class CNetChan : INetChannel
 public:
     bool IsTimingOut();
     void SetChoked();
-    void SetTimeout(float m_flSeconds, bool m_bForceExact);
+    void SetTimeout(float flSeconds, bool bForceExact);
     float GetTimeSinceLastReceived();
 
     struct netframe_header_t

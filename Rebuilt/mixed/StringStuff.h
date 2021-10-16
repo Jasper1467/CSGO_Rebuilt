@@ -3,7 +3,7 @@
 #include <cstdarg>
 #include <string.h>
 
-inline const char* V_stristr(char* m_szStr, const char* m_szSearch)
+inline const char* V_stristr(char* szStr, const char* szSearch)
 {
     char* v2; // edi
     char* v3; // ebx
@@ -19,20 +19,20 @@ inline const char* V_stristr(char* m_szStr, const char* m_szSearch)
     int v13; // esi
     int v14; // eax
 
-    v2 = m_szStr;
-    if (!m_szStr)
+    v2 = szStr;
+    if (!szStr)
         return 0;
 
-    v3 = (char*)m_szSearch;
+    v3 = (char*)szSearch;
 
-    if (!m_szSearch)
+    if (!szSearch)
         return 0;
 
-    v4 = *m_szStr;
-    if (*m_szStr)
+    v4 = *szStr;
+    if (*szStr)
     {
-        v5 = *m_szSearch;
-        v6 = *m_szSearch - 65;
+        v5 = *szSearch;
+        v6 = *szSearch - 65;
 
         while (1)
         {
@@ -77,8 +77,8 @@ inline const char* V_stristr(char* m_szStr, const char* m_szSearch)
             {
                 if (!*v10)
                     return v2;
-                v3 = (char*)m_szSearch;
-                v6 = *m_szSearch - 65;
+                v3 = (char*)szSearch;
+                v6 = *szSearch - 65;
                 goto LABEL_26;
             }
             v9 = *++v10;
@@ -90,12 +90,12 @@ inline const char* V_stristr(char* m_szStr, const char* m_szSearch)
     return 0;
 }
 
-inline const char* __cdecl V_stristr(const char* m_szStr, const char* m_szSearch)
+inline const char* __cdecl V_stristr(const char* szStr, const char* szSearch)
 {
-    V_stristr((char*)m_szStr, m_szSearch);
+    V_stristr((char*)szStr, szSearch);
 }
 
-int V_vsnprintf(char* m_szDest, int m_nMaxLen, const char* m_szFormat, va_list m_Params)
+int V_vsnprintf(char* szDest, int nMaxLen, const char* szFormat, va_list Params)
 {
     // Weird stuff happens here that i don't understand yet
 
@@ -127,19 +127,19 @@ V_vsnprintf+31   000 C3                                retn
     */
 }
 
-static int V_snprintf(char* m_szDest, int m_nMaxLen, const char* m_szFormat, ...)
+static int V_snprintf(char* szDest, int nMaxLen, const char* szFormat, ...)
 {
     int result; // eax
     va_list va; // [esp+20h] [ebp+14h]
 
-    va_start(va, m_szFormat);
-    result = V_vsnprintf(m_szDest, m_nMaxLen, m_szFormat, va);
+    va_start(va, szFormat);
+    result = V_vsnprintf(szDest, nMaxLen, szFormat, va);
 
-    if (result >= 0 && (m_nMaxLen <= 0 || result < m_nMaxLen))
+    if (result >= 0 && (nMaxLen <= 0 || result < nMaxLen))
         return result;
 
-    result = m_nMaxLen - 1;
-    m_szDest[m_nMaxLen - 1] = 0;
+    result = nMaxLen - 1;
+    szDest[nMaxLen - 1] = 0;
 
     return result;
 }

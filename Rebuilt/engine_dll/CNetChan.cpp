@@ -19,18 +19,18 @@ void CNetChan::SetChoked()
 	m_nChokedPackets++;
 }
 
-void CNetChan::SetTimeout(float m_flSeconds, bool m_bForceExact)
+void CNetChan::SetTimeout(float flSeconds, bool bForceExact)
 {
 	// 55 8B EC 80 7D 0C 00 F3 0F 10 4D 08
 
-	m_flTimeout = m_flSeconds;
+	m_flTimeout = flSeconds;
 
-	if (m_bForceExact)
+	if (bForceExact)
 		return;
 
-	if (m_flSeconds <= 3600.f)
+	if (flSeconds <= 3600.f)
 	{
-		if (m_flSeconds > 0.f)
+		if (flSeconds > 0.f)
 		{
 			if (m_flSeconds < CONNECTION_PROBLEM_TIME)
 				m_flTimeout = CONNECTION_PROBLEM_TIME;

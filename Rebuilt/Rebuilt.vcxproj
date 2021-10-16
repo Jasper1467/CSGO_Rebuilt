@@ -28,16 +28,18 @@
     <ClInclude Include="engine_dll\CEngineClient.h" />
     <ClInclude Include="engine_dll\cl_main.h" />
     <ClInclude Include="engine_dll\CNetChan.h" />
-    <ClInclude Include="mixed\CBasePlayerAnimState.h" />
-    <ClInclude Include="mixed\CCSGOPlayerAnimState.h" />
-    <ClInclude Include="mixed\CCSPlayerAnimState.h" />
+    <ClInclude Include="engine_dll\ConVar.h" />
+    <ClInclude Include="mixed\AnimationStuff.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
+    <ClInclude Include="mixed\EntityStuff.h" />
     <ClInclude Include="mixed\mathlib.h" />
     <ClInclude Include="mixed\StringStuff.h" />
     <ClInclude Include="mixed\Studio.h" />
     <ClInclude Include="mixed\Vectors.h" />
+    <ClInclude Include="server_dll\CBaseAnimating.h" />
     <ClInclude Include="server_dll\CBasePlayerAnimState.h" />
     <ClInclude Include="server_dll\CCSGOPlayerAnimState.h" />
+    <ClInclude Include="server_dll\CCSPlayer.h" />
     <ClInclude Include="server_dll\CCSPlayerAnimState.h" />
     <ClInclude Include="server_dll\CTakeDamageInfo.h" />
   </ItemGroup>
@@ -48,6 +50,8 @@
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
     <ClCompile Include="engine_dll\CEngineClient.cpp" />
     <ClCompile Include="engine_dll\CNetChan.cpp" />
+    <ClCompile Include="server_dll\CBasePlayerAnimState.cpp" />
+    <ClCompile Include="server_dll\CCSGOPlayerAnimState.cpp" />
     <ClCompile Include="server_dll\CTakeDamageInfo.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

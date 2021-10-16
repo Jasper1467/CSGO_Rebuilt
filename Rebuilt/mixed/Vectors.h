@@ -618,3 +618,224 @@ struct __declspec(align(16)) matrix3x4a_t : public matrix3x4_t
 public:
 	matrix3x4a_t& operator=(const matrix3x4_t& src) { memcpy(Base(), src.Base(), sizeof(float) * 3 * 4); return *this; };
 };
+
+class Vector2D
+{
+public:
+	Vector2D(void)
+	{
+		Invalidate();
+	}
+
+	Vector2D(float _x, float _y)
+	{
+		Init(_x, _y);
+	}
+
+	void Init(float _x = 0.0f, float _y = 0.0f)
+	{
+		x = _x;
+		y = _y;
+	}
+
+	bool IsValid()
+	{
+		return std::isfinite(x) && std::isfinite(y);
+	}
+
+	void Invalidate()
+	{
+		x = y = std::numeric_limits<float>::infinity();
+	}
+
+	void Reset()
+	{
+		x = y = 0.0f;
+	}
+
+	float& operator[](int i)
+	{
+		return ((float*)this)[i];
+	}
+
+	float operator[](int i) const
+	{
+		return ((float*)this)[i];
+	}
+
+	float& operator[](int i)
+	{
+		return ((float*)this)[i];
+	}
+
+	float operator[](int i) const
+	{
+		return ((float*)this)[i];
+	}
+
+	bool operator==(const Vector2D& src) const
+	{
+		return (src.x == x) && (src.y == y);
+	}
+
+	bool operator!=(const Vector2D& src) const
+	{
+		return (src.x != x) || (src.y != y);
+	}
+
+	Vector2D& operator+=(const Vector2D& v)
+	{
+		x += v.x; y += v.y;
+		return *this;
+	}
+
+	Vector2D& operator-=(const Vector2D& v)
+	{
+		x -= v.x; y -= v.y;
+		return *this;
+	}
+
+	Vector2D& operator*=(float fl)
+	{
+		x *= fl;
+		y *= fl;
+		return *this;
+	}
+
+	Vector2D& operator*=(const Vector2D& v)
+	{
+		x *= v.x;
+		y *= v.y;
+		return *this;
+	}
+
+	Vector2D& operator/=(const Vector2D& v)
+	{
+		x /= v.x;
+		y /= v.y;
+		return *this;
+	}
+
+	Vector2D& operator+=(float fl)
+	{
+		x += fl;
+		y += fl;
+		return *this;
+	}
+
+	Vector2D& operator/=(float fl)
+	{
+		x /= fl;
+		y /= fl;
+		return *this;
+	}
+
+	Vector2D& operator-=(float fl)
+	{
+		x -= fl;
+		y -= fl;
+		return *this;
+	}
+
+	void NormalizeInPlace()
+	{
+		*this = Normalized();
+	}
+
+	Vector2D Normalized() const
+	{
+		Vector2D res = *this;
+		float l = res.Length();
+		if (l != 0.0f) {
+			res /= l;
+		}
+		else {
+			res.x = res.y = 0.0f;
+		}
+		return res;
+	}
+
+	float DistTo(const Vector2D& vOther) const
+	{
+		Vector2D delta;
+
+		delta.x = x - vOther.x;
+		delta.y = y - vOther.y;
+
+		return delta.Length();
+	}
+
+	float DistToSqr(const Vector2D& vOther) const
+	{
+		Vector2D delta;
+
+		delta.x = x - vOther.x;
+		delta.y = y - vOther.y;
+
+		return delta.LengthSqr();
+	}
+
+	float Dot(const Vector2D& vOther) const
+	{
+		return (x * vOther.x + y * vOther.y);
+	}
+
+	float Length() const
+	{
+		return sqrt(x * x + y * y);
+	}
+
+	float LengthSqr(void) const
+	{
+		return (x * x + y * y);
+	}
+
+	float Length2D() const
+	{
+		return sqrt(x * x + y * y);
+	}
+
+	Vector2D& operator=(const Vector2D& vOther)
+	{
+		x = vOther.x; y = vOther.y;
+		return *this;
+	}
+
+	Vector2D operator-(void) const
+	{
+		return Vector2D(-x, -y);
+	}
+
+	Vector2D operator+(const Vector2D& v) const
+	{
+		return Vector2D(x + v.x, y + v.y);
+	}
+
+	Vector2D operator-(const Vector2D& v) const
+	{
+		return Vector2D(x - v.x, y - v.y);
+	}
+
+	Vector2D operator*(float fl) const
+	{
+		return Vector2D(x * fl, y * fl);
+	}
+
+	Vector2D operator*(const Vector2D& v) const
+	{
+		return Vector2D(x * v.x, y * v.y);
+	}
+
+	Vector2D operator/(float fl) const
+	{
+		return Vector2D(x / fl, y / fl);
+	}
+
+	Vector2D operator/(const Vector2D& v) const
+	{
+		return Vector2D(x / v.x, y / v.y);
+	}
+
+	float x;
+	float y;
+};

@@ -5,7 +5,7 @@
 #include "../mixed/Studio.h"
 #include "../mixed/CCSGOPlayerAnimState.h"
 #include "../engine_dll/CEngineClient.h"
-#include "C_BaseEntity.h"
+#include "../mixed/EntityStuff.h"
 #include "C_BaseAnimating.h"
 
 inline bool IsPreCrouchUpdateDemo()
@@ -32,8 +32,8 @@ struct C_AnimationLayer
 	float m_flLayerAnimtime;
 	float m_flLayerFadeOuttime;
 	CStudioHdr* m_pDispatchedStudioHdr;
-	Activities_t m_nDispatchedSrc;
-	Activities_t m_nDispatchedDst;
+	Activity_t m_nDispatchedSrc;
+	Activity_t m_nDispatchedDst;
 	int m_nOrder;
 	int m_nSequence;
 	float m_flPrevCycle;

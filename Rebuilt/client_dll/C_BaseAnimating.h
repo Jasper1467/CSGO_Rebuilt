@@ -6,7 +6,7 @@
 class C_BaseAnimating : public C_BaseEntity
 {
 public:
-	int LookupBone(const char* m_szName);
+	int LookupBone(const char* szName);
 	void* GetModelPtr();
 	bool ShouldSkipAnimationFrame();
 	bool IsPlayer(); // Index 158
