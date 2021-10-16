@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CBasePlayerAnimState.h"
-#include "../mixed/CCSPlayerAnimState.h"
+#include "../mixed/AnimationStuff.h"
 
 class CCSPlayerAnimState : public CBasePlayerAnimState
 {

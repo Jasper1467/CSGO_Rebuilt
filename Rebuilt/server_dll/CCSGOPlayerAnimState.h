@@ -1,17 +1,18 @@
 #pragma once
 
-#include "../mixed/CCSGOPlayerAnimState.h"
+#include "../mixed/AnimationStuff.h"
 #include "../mixed/mathlib.h"
 #include "../mixed/Vectors.h"
+#include "../mixed/EntityStuff.h"
+#include "CCSPlayer.h"
 
 class CBaseEntity;
 class CBaseCombatWeapon;
-class CCSPlayer;
 
 class CCSGOPlayerAnimState
 {
 public:
-
+	void IncrementLayerCycle(int nLayer, bool a3);
 
 	int* m_pLayerOrderPreset;
 	bool m_bFirstRunSinceInit;
@@ -105,7 +106,7 @@ public:
 	char pad_01AE[2];
 	animstate_pose_param_cache_t m_arrPoseParameters[20];
 	bool m_bDeploying;
-	DWORD m_iUnknownInt__;
+	int m_iUnknownInt__;
 	float m_flGoalRunningSpeed;
 	int m_iMoveState;
 	float m_flMovePlaybackRate;
