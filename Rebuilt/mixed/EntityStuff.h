@@ -1086,3 +1086,11 @@ enum InvalidatePhysicsBits_t
 	BOUNDS_CHANGED = 0x10,
 	SEQUENCE_CHANGED = 0x20,
 };
+
+enum LifeState_t
+{
+	LIFE_ALIVE = 0x0,
+	LIFE_DYING = 0x1,
+	LIFE_DEAD = 0x2,
+	MAX_LIFESTATE = 0x3,
+};

@@ -26,9 +26,9 @@ public:
 	CCSPlayer* m_pPlayer;
 	CBaseCombatWeapon* m_pActiveWeapon;
 	CBaseCombatWeapon* m_pLastActiveWeapon;
-	float m_flLastClientSideAnimationUpdateTime;
-	int m_nLastClientSideAnimationUpdateFramecount;
-	float m_flLastClientSideAnimationUpdateTimeDelta;
+	float m_flLastUpdateTime;
+	int m_nLastUpdateFrame;
+	float m_flLastUpdateIncrement;
 	float m_flEyeYaw;
 	float m_flEyePitch;
 	float m_flGoalFeetYaw;

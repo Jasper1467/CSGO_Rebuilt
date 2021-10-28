@@ -619,6 +619,12 @@ public:
 	matrix3x4a_t& operator=(const matrix3x4_t& src) { memcpy(Base(), src.Base(), sizeof(float) * 3 * 4); return *this; };
 };
 
+class VMatrix
+{
+public:
+	float m[4][4];
+};
+
 class Vector2D
 {
 public:

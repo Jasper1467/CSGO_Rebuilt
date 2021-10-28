@@ -3,7 +3,7 @@
 #include "../mixed/Vectors.h"
 #include "../client_dll/C_CSPlayer.h"
 #include "../mixed/Studio.h"
-#include "../mixed/CCSGOPlayerAnimState.h"
+#include "../mixed/AnimationStuff.h"
 #include "../engine_dll/CEngineClient.h"
 #include "../mixed/EntityStuff.h"
 #include "C_BaseAnimating.h"
@@ -50,7 +50,7 @@ class C_BaseCombatWeapon;
 class CCSGOPlayerAnimState
 {
 public:
-	void* vtable;
+	int* m_pLayerOrderPreset;
 	bool m_bFirstRunSinceInit;
 	bool m_bFirstFootPlantSinceInit;
 	char pad[2];
@@ -65,16 +65,16 @@ public:
 	C_CSPlayer* m_pPlayer;
 	C_BaseCombatWeapon* m_pActiveWeapon;
 	C_BaseCombatWeapon* m_pLastActiveWeapon;
-	float m_flLastClientSideAnimationUpdateTime;
-	int m_nLastClientSideAnimationUpdateFramecount;
-	float m_flLastClientSideAnimationUpdateTimeDelta;
+	float m_flLastUpdateTime;
+	int m_nLastUpdateFrame;
+	float m_flLastUpdateIncrement;
 	float m_flEyeYaw;
 	float m_flEyePitch;
 	float m_flGoalFeetYaw;
 	float m_flCurrentFeetYaw;
 	float m_flMoveYawIdeal;
+	float m_flGoalMoveDirGoalFeetDelta;
 	float m_flMoveYawCurrentToIdeal;
-	float m_flFeetVelDirDelta;
 	float pad_0049;
 	float m_flFeetCycle;
 	float m_flFeetWeight;

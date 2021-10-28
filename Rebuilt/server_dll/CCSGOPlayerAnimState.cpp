@@ -22,7 +22,7 @@ void CCSGOPlayerAnimState::IncrementLayerCycle(int nLayer, bool a3)
 	if (!pLayer || fabs(pLayer->m_flPlaybackRate) <= 0.0f)
 		return;
 
-	float v7 = m_flLastClientSideAnimationUpdateTimeDelta * pLayer->m_flPlaybackRate + pLayer->m_flCycle;
+	float v7 = m_flLastUpdateIncrement * pLayer->m_flPlaybackRate + pLayer->m_flCycle;
 	if (!a3 && v7 >= 1.0f)
 		v7 = 0.999f;
 

@@ -22,6 +22,7 @@ public:
 
 	float GetFloat(); // 12
 	int GetInt(); // 13
+	bool GetBool();
 
 	ConVar* m_pParent;
 	const char* m_szDefaultValue;

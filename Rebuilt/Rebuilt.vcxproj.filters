@@ -24,6 +24,15 @@
     <ClInclude Include="mixed\EntityStuff.h" />
     <ClInclude Include="server_dll\CBaseAnimating.h" />
     <ClInclude Include="server_dll\CCSPlayer.h" />
+    <ClInclude Include="engine_dll\COcclusionSystem.h" />
+    <ClInclude Include="mixed\SomeDefs.h" />
+    <ClInclude Include="client_dll\CGameMovement.h" />
+    <ClInclude Include="mixed\C_CSPlayer.h" />
+    <ClInclude Include="client_dll\C_BasePlayer.h" />
+    <ClInclude Include="mixed\CUserCmd.h" />
+    <ClInclude Include="client_dll\IPredictionSystem.h" />
+    <ClInclude Include="client_dll\C_TempEntsSystem.h" />
+    <ClInclude Include="client_dll\CPrediction.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
@@ -35,5 +44,8 @@
     <ClCompile Include="server_dll\CTakeDamageInfo.cpp" />
     <ClCompile Include="server_dll\CBasePlayerAnimState.cpp" />
     <ClCompile Include="server_dll\CCSGOPlayerAnimState.cpp" />
+    <ClCompile Include="engine_dll\COcclusionSystem.cpp" />
+    <ClCompile Include="client_dll\CGameMovement.cpp" />
+    <ClCompile Include="client_dll\C_BasePlayer.cpp" />
   </ItemGroup>
 </Project>
