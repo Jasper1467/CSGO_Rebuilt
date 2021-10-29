@@ -23,6 +23,7 @@
     <ClInclude Include="client_dll\CBoneSnapshot.h" />
     <ClInclude Include="client_dll\CGameMovement.h" />
     <ClInclude Include="client_dll\CPrediction.h" />
+    <ClInclude Include="client_dll\CUserCmd.h" />
     <ClInclude Include="client_dll\C_BaseAnimating.h" />
     <ClInclude Include="client_dll\C_BaseEntity.h" />
     <ClInclude Include="client_dll\C_BasePlayer.h" />
@@ -51,6 +52,7 @@
     <ClInclude Include="server_dll\CCSPlayer.h" />
     <ClInclude Include="server_dll\CCSPlayerAnimState.h" />
     <ClInclude Include="server_dll\CTakeDamageInfo.h" />
+    <ClInclude Include="server_dll\CUserCmd.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\CBoneSnapshot.cpp" />

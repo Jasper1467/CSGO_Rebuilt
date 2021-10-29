@@ -33,6 +33,8 @@
     <ClInclude Include="client_dll\IPredictionSystem.h" />
     <ClInclude Include="client_dll\C_TempEntsSystem.h" />
     <ClInclude Include="client_dll\CPrediction.h" />
+    <ClInclude Include="server_dll\CUserCmd.h" />
+    <ClInclude Include="client_dll\CUserCmd.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
