@@ -5,6 +5,8 @@
 class CUserCmd
 {
 public:
+	int vtable;
+
 	CRC32_t GetChecksum();
 
 	void Reset()
@@ -27,7 +29,6 @@ public:
 		m_bHasBeenPredicted = false;
 		m_angHeadAngles.Reset();
 		m_vecHeadOffset.Reset();
-		m_nDebugRepredictionCount = 0;
 	}
 
 	int m_nCommandNumber;
@@ -48,5 +49,4 @@ public:
 	bool m_bHasBeenPredicted;
 	QAngle m_angHeadAngles;
 	Vector m_vecHeadOffset;
-	int m_nDebugRepredictionCount;
 };
