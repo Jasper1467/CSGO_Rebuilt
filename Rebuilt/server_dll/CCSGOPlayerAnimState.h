@@ -9,6 +9,7 @@
 class CBaseEntity;
 class CBaseCombatWeapon;
 
+// Fucked some things up here :(
 class CCSGOPlayerAnimState
 {
 public:
@@ -16,7 +17,7 @@ public:
 
 	int* m_pLayerOrderPreset;
 	bool m_bFirstRunSinceInit;
-	char firstpad[3];
+	char pad[3];
 	float m_flFlashedAmountEaseOutStart;
 	float m_flFlashedAmountEaseOutEnd;
 	aimmatrix_transition_t m_StandWalkAim;

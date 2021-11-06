@@ -10,8 +10,10 @@ ConVar cl_predict = ConVar("cl_predict", "1.5", 0x400200, "Perform client side p
 ConVar cl_pred_optimize = ConVar("cl_pred_optimize", "2", 0,
 	"Optimize for not copying data if didn't receive a network update (1), and also for not repredicting if there were no errors (2).");
 
-class CHudElement;
+#define MAX_PREDICTION_ERROR 64.f
+#define MIN_PREDICTION_EPSILON 0.5f
 
+class CHudElement;
 class CPrediction
 {
 public:
@@ -38,7 +40,7 @@ public:
 	int m_nPreviousStartFrame;
 	int m_nIncomingPacketNumber;
 	float m_flLastServerWorldTimeStamp;
-	CPrediction::Split_t m_Split[1];
+	Split_t m_Split[1];
 	CGlobalVarsBase* m_SavedVars;
 	char pad[100];
 	CHudElement* m_pPDumpPanel;

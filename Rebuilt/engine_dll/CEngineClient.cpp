@@ -17,9 +17,9 @@ bool CEngineClient::IsConnected()
 	return g_pClientState->m_nSignonState >= SIGNONSTATE_CONNECTED;
 }
 
-INetChannel* CEngineClient::GetNetChannel()
+INetChannelInfo* CEngineClient::GetNetChannelInfo()
 {
-	return g_pClientState->m_pNetChannel;
+	return (INetChannelInfo*)g_pClientState->m_pNetChannel;
 }
 
 const char* CEngineClient::GetLevelName()

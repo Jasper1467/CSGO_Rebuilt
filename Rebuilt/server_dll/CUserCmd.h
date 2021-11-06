@@ -5,7 +5,7 @@
 class CUserCmd
 {
 public:
-	int vtable;
+	~CUserCmd() {}
 
 	CRC32_t GetChecksum();
 

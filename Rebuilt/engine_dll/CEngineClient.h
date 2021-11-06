@@ -10,8 +10,11 @@ public:
 	bool IsConnected();
 	const char* GetLevelName();
 	const char* GetLevelNameShort();
-	INetChannel* GetNetChannel();
+	INetChannelInfo* GetNetChannelInfo();
 	bool IsHLTV();
+
+	bool IsPlayingDemo(); // Index 82
+	bool IsPaused(); // Index 90
 };
 
 // Using as interface

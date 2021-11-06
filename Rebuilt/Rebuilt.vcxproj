@@ -36,6 +36,7 @@
     <ClInclude Include="engine_dll\CNetChan.h" />
     <ClInclude Include="engine_dll\COcclusionSystem.h" />
     <ClInclude Include="engine_dll\ConVar.h" />
+    <ClInclude Include="filesystem_stdio_dll\CFileSystem_Stdio.h" />
     <ClInclude Include="mixed\AnimationStuff.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
     <ClInclude Include="mixed\CUserCmd.h" />
@@ -64,6 +65,7 @@
     <ClCompile Include="engine_dll\CEngineClient.cpp" />
     <ClCompile Include="engine_dll\CNetChan.cpp" />
     <ClCompile Include="engine_dll\COcclusionSystem.cpp" />
+    <ClCompile Include="filesystem_stdio_dll\CFileSystem_Stdio.cpp" />
     <ClCompile Include="server_dll\CBasePlayerAnimState.cpp" />
     <ClCompile Include="server_dll\CCSGOPlayerAnimState.cpp" />
     <ClCompile Include="server_dll\CTakeDamageInfo.cpp" />

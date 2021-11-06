@@ -5,6 +5,8 @@
 class CUserCmd
 {
 public:
+	~CUserCmd() {}
+
 	CRC32_t GetChecksum();
 
 	void Reset()

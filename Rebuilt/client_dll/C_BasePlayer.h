@@ -21,6 +21,7 @@ public:
 	bool IsAlive(); // index 158
 	C_BaseCombatWeapon* GetActiveWeapon();
 	float GetPlayerMaxSpeed(); // index 276
+	void GetPredictionErrorSmoothingVector(Vector vecOffset);
 
 	int m_iHealth; // this + 0x100
 	int m_fFlags; // this + 0x104
@@ -31,6 +32,8 @@ public:
 	int m_lifeState; // this + 0x25F
 	int m_MoveType; // this + 0x25C
 	float m_flWaterJumpTime; // this + 0x321
+	Vector m_vecPredictionError; // this + 0xD6A
+	float m_flPredictionErrorTime; // this + 0xD6D
 	float m_flDuckAmount; // this + 0x2FBC
 	float m_flDuckSpeed; // this + 0x2FC0
 	bool m_bDucked; // this + 0x3054

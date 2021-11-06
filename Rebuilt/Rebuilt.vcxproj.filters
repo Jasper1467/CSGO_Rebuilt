@@ -35,6 +35,7 @@
     <ClInclude Include="client_dll\CPrediction.h" />
     <ClInclude Include="server_dll\CUserCmd.h" />
     <ClInclude Include="client_dll\CUserCmd.h" />
+    <ClInclude Include="filesystem_stdio_dll\CFileSystem_Stdio.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
@@ -49,5 +50,6 @@
     <ClCompile Include="engine_dll\COcclusionSystem.cpp" />
     <ClCompile Include="client_dll\CGameMovement.cpp" />
     <ClCompile Include="client_dll\C_BasePlayer.cpp" />
+    <ClCompile Include="filesystem_stdio_dll\CFileSystem_Stdio.cpp" />
   </ItemGroup>
 </Project>

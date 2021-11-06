@@ -33,5 +33,7 @@ enum CUserCmd_Buttons_t
 	IN_LOOKSPIN = 0x2000000,
 };
 
-// Above this bf_read::SetOverflowFlag gets called
-#define MAX_COMMANDS 62
+// Above this, bf_read::SetOverflowFlag gets called
+// This happens in CServerGameClients::ProcessUsercmds
+// server.dll 83 FE 3E
+#define MAX_COMMANDS_PROCESSABLE 62
