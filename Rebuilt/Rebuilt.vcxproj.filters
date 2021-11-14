@@ -36,6 +36,14 @@
     <ClInclude Include="server_dll\CUserCmd.h" />
     <ClInclude Include="client_dll\CUserCmd.h" />
     <ClInclude Include="filesystem_stdio_dll\CFileSystem_Stdio.h" />
+    <ClInclude Include="client_dll\C_CSGameRules.h" />
+    <ClInclude Include="engine_dll\CEngineTrace.h" />
+    <ClInclude Include="server_dll\CLagCompensationManager.h" />
+    <ClInclude Include="server_dll\CBasePlayer.h" />
+    <ClInclude Include="server_dll\CMoveHelperServer.h" />
+    <ClInclude Include="mixed\CutlVector.h" />
+    <ClInclude Include="client_dll\CEngineTrace.h" />
+    <ClInclude Include="server_dll\CEngineTrace.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
@@ -51,5 +59,7 @@
     <ClCompile Include="client_dll\CGameMovement.cpp" />
     <ClCompile Include="client_dll\C_BasePlayer.cpp" />
     <ClCompile Include="filesystem_stdio_dll\CFileSystem_Stdio.cpp" />
+    <ClCompile Include="client_dll\C_CSGameRules.cpp" />
+    <ClCompile Include="server_dll\CMoveHelperServer.cpp" />
   </ItemGroup>
 </Project>

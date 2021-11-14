@@ -49,3 +49,5 @@ struct CGlobalVars : CGlobalVarsBase
 // Using these as interfaces
 CGlobalVarsBase* g_pGlobals;
 CGlobalVars* g_pServerGlobals;
+
+#define TICK_INTERVAL g_pGlobals->m_flIntervalPerTick;

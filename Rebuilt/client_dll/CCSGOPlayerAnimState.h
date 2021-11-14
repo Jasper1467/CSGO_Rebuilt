@@ -10,7 +10,7 @@
 
 inline bool IsPreCrouchUpdateDemo()
 {
-	return g_pEngineClient->IsHLTV() || (*(unsigned __int8(__thiscall**)(int))(*(_DWORD*)g_pEngineClient + 328))(g_pEngineClient))
+	return g_pEngineClient->IsHLTV() || g_pEngineClient->IsPlayingDemo()
 		&& (*(int(__thiscall**)(int))(*(_DWORD*)g_pEngineClient + 904))(g_pEngineClient) <= 13546;
 }
 

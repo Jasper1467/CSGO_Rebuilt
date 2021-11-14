@@ -32,7 +32,7 @@ void CNetChan::SetTimeout(float flSeconds, bool bForceExact)
 	{
 		if (flSeconds > 0.f)
 		{
-			if (m_flSeconds < CONNECTION_PROBLEM_TIME)
+			if (flSeconds < CONNECTION_PROBLEM_TIME)
 				m_flTimeout = CONNECTION_PROBLEM_TIME;
 		}
 		else

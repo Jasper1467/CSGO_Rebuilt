@@ -21,17 +21,20 @@
   <ItemGroup>
     <ClInclude Include="client_dll\CCSGOPlayerAnimState.h" />
     <ClInclude Include="client_dll\CBoneSnapshot.h" />
+    <ClInclude Include="client_dll\CEngineTrace.h" />
     <ClInclude Include="client_dll\CGameMovement.h" />
     <ClInclude Include="client_dll\CPrediction.h" />
     <ClInclude Include="client_dll\CUserCmd.h" />
     <ClInclude Include="client_dll\C_BaseAnimating.h" />
     <ClInclude Include="client_dll\C_BaseEntity.h" />
     <ClInclude Include="client_dll\C_BasePlayer.h" />
+    <ClInclude Include="client_dll\C_CSGameRules.h" />
     <ClInclude Include="client_dll\C_CSPlayer.h" />
     <ClInclude Include="client_dll\C_TempEntsSystem.h" />
     <ClInclude Include="client_dll\IPredictionSystem.h" />
     <ClInclude Include="engine_dll\CClientState.h" />
     <ClInclude Include="engine_dll\CEngineClient.h" />
+    <ClInclude Include="engine_dll\CEngineTrace.h" />
     <ClInclude Include="engine_dll\cl_main.h" />
     <ClInclude Include="engine_dll\CNetChan.h" />
     <ClInclude Include="engine_dll\COcclusionSystem.h" />
@@ -40,6 +43,7 @@
     <ClInclude Include="mixed\AnimationStuff.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
     <ClInclude Include="mixed\CUserCmd.h" />
+    <ClInclude Include="mixed\CutlVector.h" />
     <ClInclude Include="mixed\C_CSPlayer.h" />
     <ClInclude Include="mixed\EntityStuff.h" />
     <ClInclude Include="mixed\mathlib.h" />
@@ -48,10 +52,14 @@
     <ClInclude Include="mixed\Studio.h" />
     <ClInclude Include="mixed\Vectors.h" />
     <ClInclude Include="server_dll\CBaseAnimating.h" />
+    <ClInclude Include="server_dll\CBasePlayer.h" />
     <ClInclude Include="server_dll\CBasePlayerAnimState.h" />
     <ClInclude Include="server_dll\CCSGOPlayerAnimState.h" />
     <ClInclude Include="server_dll\CCSPlayer.h" />
     <ClInclude Include="server_dll\CCSPlayerAnimState.h" />
+    <ClInclude Include="server_dll\CEngineTrace.h" />
+    <ClInclude Include="server_dll\CLagCompensationManager.h" />
+    <ClInclude Include="server_dll\CMoveHelperServer.h" />
     <ClInclude Include="server_dll\CTakeDamageInfo.h" />
     <ClInclude Include="server_dll\CUserCmd.h" />
   </ItemGroup>
@@ -61,6 +69,7 @@
     <ClCompile Include="client_dll\CGameMovement.cpp" />
     <ClCompile Include="client_dll\C_BaseAnimating.cpp" />
     <ClCompile Include="client_dll\C_BasePlayer.cpp" />
+    <ClCompile Include="client_dll\C_CSGameRules.cpp" />
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
     <ClCompile Include="engine_dll\CEngineClient.cpp" />
     <ClCompile Include="engine_dll\CNetChan.cpp" />
@@ -68,6 +77,7 @@
     <ClCompile Include="filesystem_stdio_dll\CFileSystem_Stdio.cpp" />
     <ClCompile Include="server_dll\CBasePlayerAnimState.cpp" />
     <ClCompile Include="server_dll\CCSGOPlayerAnimState.cpp" />
+    <ClCompile Include="server_dll\CMoveHelperServer.cpp" />
     <ClCompile Include="server_dll\CTakeDamageInfo.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -81,26 +91,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>

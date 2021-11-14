@@ -3,9 +3,33 @@
 #include "C_BasePlayer.h"
 #include "C_CSPlayer.h"
 #include "../engine_dll/ConVar.h"
+#include "../mixed/CGlobalVarsBase.h"
 
-#define GAMEMOV_PLAYER_MAX_SAFE_FALL_SPEED 580.f
-#define GAMEMOV_IN_SPEED_MULTIPLIER 0.5f
+#define CHECK_STUCK_INTERVAL 1.0f
+#define CHECK_STUCK_TICK_INTERVAL ((int)(CHECK_STUCK_INTERVAL / TICK_INTERVAL))
+
+#define CHECK_STUCK_INTERVAL_SP 0.2f
+#define CHECK_STUCK_TICK_INTERVAL_SP ((int)(CHECK_STUCK_INTERVAL_SP / TICK_INTERVAL))
+
+#define CHECK_LADDER_WEDGE_INTERVAL			0.5f
+#define CHECK_LADDER_WEDGE_TICK_INTERVAL		( (int)( CHECK_LADDER_WEDGE_INTERVAL / TICK_INTERVAL ) )
+
+#define	 CHECK_LADDER_TICK_INTERVAL 2
+
+#define PLAYER_MAX_SAFE_FALL_SPEED 580.f
+
+#define GAMEMOVEMENT_IN_SPEED_MULTIPLIER 0.5f
+
+#define GAMEMOVEMENT_DUCK_TIME 100
+
+#define MINIMUM_MOVE_FRACTION 0.0001f
+#define EFFECTIVELY_HORIZONTAL_NORMAL_Z	0.0001f
+
+// TODO: check this
+#define MIN_JUMP_SPEED 145.f
+
+// https://github.com/perilouswithadollarsign/cstrike15_src/blob/f82112a2388b841d72cb62ca48ab1846dfcc11c8/game/shared/gamemovement.cpp#L1975-L1976
+#define MAX_ACCEL_WISHSPEED 30.f
 
 struct CMoveData
 {
@@ -46,12 +70,17 @@ enum SpeedCropped_t
 	SPEED_CROPPED_WEAPON = 0x2,
 };
 
+// TEMP NOTE?: jump impulse = sqrt2(2 * gravity * height)
+
 class CGameMovement
 {
 public:
 	void ProcessMovement(C_BasePlayer* pPlayer, CMoveData* pMoveData);
 	void Reset();
-	void Log(const char* szFormat, ...);
+	void DiffPrint(const char* szFormat, ...);
+	const Vector& GetPlayerMins(bool bDucked);
+	const Vector& GetPlayerMaxs(bool bDucked);
+
 	void PlayerMove();
 	void ResetGetWaterContentsForPointCache();
 

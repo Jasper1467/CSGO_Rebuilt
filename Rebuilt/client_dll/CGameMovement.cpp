@@ -4,6 +4,7 @@
 #include "../mixed/EntityStuff.h"
 #include "../mixed/CGlobalVarsBase.h"
 #include "../mixed/C_CSPlayer.h"
+#include "C_CSGameRules.h"
 
 void CGameMovement::ProcessMovement(C_BasePlayer* pPlayer, CMoveData* pMoveData)
 {
@@ -19,12 +20,12 @@ void CGameMovement::ProcessMovement(C_BasePlayer* pPlayer, CMoveData* pMoveData)
     m_pMoveData->m_flMaxSpeed = pPlayer->GetPlayerMaxSpeed();
     m_bProcessingMovement = true;
 
-    Log("start %f %f %f", m_pMoveData->m_vecAbsOrigin.x, m_pMoveData->m_vecAbsOrigin.y, m_pMoveData->m_vecAbsOrigin.z);
+    DiffPrint("start %f %f %f", m_pMoveData->m_vecAbsOrigin.x, m_pMoveData->m_vecAbsOrigin.y, m_pMoveData->m_vecAbsOrigin.z);
 
     PlayerMove();
     m_pMoveData->m_nOldButtons = m_pMoveData->m_nButtons;
 
-   Log("end %f %f %f", m_pMoveData->m_vecAbsOrigin.x, m_pMoveData->m_vecAbsOrigin.y, m_pMoveData->m_vecAbsOrigin.z);
+    DiffPrint("end %f %f %f", m_pMoveData->m_vecAbsOrigin.x, m_pMoveData->m_vecAbsOrigin.y, m_pMoveData->m_vecAbsOrigin.z);
     g_pGlobals->m_flFrameTime = flBackupFrameTime;
 
     m_bProcessingMovement = false;
@@ -34,6 +35,22 @@ void CGameMovement::Reset()
 {
     m_pPlayer = nullptr;
 }
+
+const Vector& CGameMovement::GetPlayerMins(bool bDucked)
+{
+    CViewVectors* v1 = g_pGameRules->GetViewVectors();
+
+    return bDucked ? v1->m_vecDuckHullMin : v1->m_vecHullMin;
+}
+
+const Vector& CGameMovement::GetPlayerMaxs(bool bDucked)
+{
+    CViewVectors* v1 = g_pGameRules->GetViewVectors();
+
+    return bDucked ? v1->m_vecDuckHullMax : v1->m_vecHullMax;
+}
+
+
 
 void CGameMovement::ResetGetWaterContentsForPointCache()
 {

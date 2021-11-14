@@ -8,12 +8,11 @@ public:
 
 	void SuppressEvents()
 	{
-		for (IPredictionSystem* pSys = s_pPredictionSystems; pSys; pSys = (IPredictionSystem*)pSys->m_pSuppressHost)
+		for (IPredictionSystem* pSys = m_pPredictionSystems; pSys; pSys = (IPredictionSystem*)pSys->m_pSuppressHost)
 			pSys->m_bSuppressEvent = false;
 	}
 
-	// TODO: Is this actually in this class
-	static IPredictionSystem* s_pPredictionSystems;
+	static IPredictionSystem* m_pPredictionSystems;
 
 	IPredictionSystem* m_pNextSystem;
 	C_BaseEntity* m_pSuppressHost;
