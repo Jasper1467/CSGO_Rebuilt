@@ -1,8 +1,8 @@
 #include "COcclusionSystem.h"
 #include "../mixed/SomeDefs.h"
 
-void COcclusionSystem::SetView(const Vector* vecCameraPos, int flFov, VMatrix* WorldToCamera, VMatrix* CameraToProjection,
-	VPlane* NearClipPlane)
+void COcclusionSystem::SetView(const Vector& vecCameraPos, int flFov, const VMatrix& WorldToCamera,
+    const VMatrix& CameraToProjection, const VPlane& NearClipPlane)
 {
     int v6; // eax
     unsigned int v7; // esi

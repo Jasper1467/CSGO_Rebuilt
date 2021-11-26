@@ -1094,3 +1094,11 @@ enum LifeState_t
 	LIFE_DEAD = 0x2,
 	MAX_LIFESTATE = 0x3,
 };
+
+enum WaterLevel_t
+{
+	WL_NotInWater = 0x0,
+	WL_Feet = 0x1,
+	WL_Waist = 0x2,
+	WL_Eyes = 0x3,
+};

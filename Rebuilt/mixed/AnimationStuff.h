@@ -100,7 +100,6 @@ enum PlayerAnimEvent_t
 	PLAYERANIMEVENT_COUNT = 0x13,
 };
 
-
 #define ANIM_MOVING_MINIMUM_SPEED 0.5f
 
 #define ANIM_MAX_VELOCITY 260.f

@@ -3,6 +3,6 @@
 class C_BaseEntity
 {
 public:
-	int entindex(); // Index 10
+	int entindex();
 	bool PredictionErrorShouldResetLatchedForAllPredictables() { return true; } // Index 133
 };

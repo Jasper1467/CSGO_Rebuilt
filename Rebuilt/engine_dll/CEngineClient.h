@@ -15,6 +15,9 @@ public:
 
 	bool IsPlayingDemo(); // Index 82
 	bool IsPaused(); // Index 90
+	bool IsOccluded();
+	int GetCurrentViewId();
+	const char* GetGameDirectory();
 };
 
 // Using as interface

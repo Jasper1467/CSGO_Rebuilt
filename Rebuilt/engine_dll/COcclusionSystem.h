@@ -10,8 +10,11 @@ ConVar r_occlusionspew("r_occlusionspew", "0", 0x4000, "Activate/deactivates spe
 class COcclusionSystem
 {
 public:
-	void SetView(const Vector* vecCameraPos, int flFov, VMatrix* WorldToCamera, VMatrix* CameraToProjection, VPlane* NearClipPlane);
+	void SetView(const Vector& vecCameraPos, int flFov, const VMatrix& WorldToCamera, const VMatrix& CameraToProjection,
+		const VPlane& NearClipPlane);
+
 	int GetCurrentViewId();
+	bool IsOccluded(int nOcclusionViewId, const Vector& vecAbsMins, const Vector& vecAbsMaxs);
 	void SetOcclusionParameters(float flMaxOccluderArea, float flMinOccluderArea);
 	float GetMinOccluderArea();
 
@@ -30,7 +33,6 @@ public:
 		float m_flFOVFactor;
 	};
 
-	int vtable;
 	int m_nCurrentViewId;
 	ViewData_t m_ViewData[32];
 	char pad[500];
@@ -39,3 +41,5 @@ public:
 	int m_nTests;
 	int m_nOccluded;
 };
+
+inline COcclusionSystem* g_pOcclusionSystem;

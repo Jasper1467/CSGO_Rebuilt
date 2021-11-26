@@ -1,4 +1,5 @@
 #pragma once
+#include "../mixed/Studio.h"
 
 struct __declspec(align(4)) CAnimationLayer
 {
@@ -9,14 +10,20 @@ struct __declspec(align(4)) CAnimationLayer
 	int m_nSequence;
 	float m_flCycle;
 	float m_flPlaybackRate;
-	char pad_0x0014[4];
+	float m_flPrevCycle;
 	float m_flWeight;
 	float m_flWeightDeltaRate;
-	char pad_0x001C[24];
+	float m_flBlendIn;
+	float m_flBlendOut;
+	float m_flKillRate;
+	float m_flKillDelay;
+	float m_flLayerAnimtime;
+	float m_flLayerFadeOuttime;
 	void* m_pDispatchedStudioHdr;
 	Activity_t m_nDispatchedSrc;
 	Activity_t m_nDispatchedDst;
-	char pad_0x001C_2[8];
+	Activity_t m_nActivity;
+	int m_nPriority;
 	int m_nOrder;
 	float m_flLastEventCheck;
 	float m_flLastAccess;
@@ -29,7 +36,7 @@ public:
 	void SetNumAnimOverlays(int nNum);
 	int GetNumAnimOverlays();
 
-	CAnimationLayer* m_AnimOverlay[13]; // this[0x135]
+	CAnimationLayer* m_AnimOverlay[13]; // this + 0x4D4
 };
 
 class CBaseAnimating

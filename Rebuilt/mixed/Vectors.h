@@ -496,7 +496,8 @@ public:
 
 struct CViewVectors
 {
-	CViewVectors(Vector view, Vector hullmin, Vector hullmax, Vector duckhullmin, Vector duckhullmax, Vector duckview, Vector obshullmin, Vector obshullmax, Vector deadviewheight)
+	CViewVectors(Vector view, Vector hullmin, Vector hullmax, Vector duckhullmin,
+		Vector duckhullmax, Vector duckview, Vector obshullmin, Vector obshullmax, Vector deadviewheight)
 	{
 		m_vecView = view;
 		m_vecHullMin = hullmin;
