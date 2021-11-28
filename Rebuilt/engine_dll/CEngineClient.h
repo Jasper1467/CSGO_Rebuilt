@@ -2,6 +2,30 @@
 
 #include "CNetChan.h"
 
+struct player_info_t
+{
+	__int64 m_nVersion;
+	union
+	{
+		__int64 m_nSteamID64;
+		struct
+		{
+			__int32 m_nXUIDlow;
+			__int32 m_nXUIDhigh;
+		};
+	};
+	char m_szName[128];
+	int m_nUserId;
+	char m_szGuid[20];
+	char pad_0x00A8[16];
+	unsigned int m_nSteamID;
+	char m_szFriendsName[128];
+	bool m_bFakePlayer;
+	bool m_bIsHltv;
+	unsigned int m_nCustomFiles[4];
+	unsigned __int8 m_FilesDownloaded;
+};
+
 class CEngineClient
 {
 public:

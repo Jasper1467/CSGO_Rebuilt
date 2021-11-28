@@ -20,8 +20,8 @@ void CBasePlayerAnimState::ClearAnimationLayers()
 
     for (int i = 0; i < m_pOuter->GetNumAnimOverlays(); i++)
     {
-        m_pOuter->m_AnimOverlay[i]->m_nOrder = LAYER_COUNT;
-        m_pOuter->m_AnimOverlay[i]->m_fFlags = 0;
+        m_pOuter->m_AnimOverlay[i].m_nOrder = LAYER_COUNT;
+        m_pOuter->m_AnimOverlay[i].m_fFlags = 0;
     }
 }
 
@@ -54,4 +54,10 @@ bool CBasePlayerAnimState::ShouldBlendAimSequenceToIdle()
 float CBasePlayerAnimState::GetFeetYawRate()
 {
     return mp_feetyawrate.GetFloat();
+}
+
+void CBasePlayerAnimState::RestartMainSequence()
+{
+    m_pOuter->m_flAnimTime = g_pServerGlobals->m_flCurTime;
+    m_pOuter->SetCycle(0.f);
 }

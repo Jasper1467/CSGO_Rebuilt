@@ -8,6 +8,8 @@ class CCSPlayer;
 class CCSPlayerAnimState : public CBasePlayerAnimState
 {
 public:
+	bool HandleJumping();
+
 	char pad[44];
 	bool m_bJumping;
 	float m_flJumpStartTime;

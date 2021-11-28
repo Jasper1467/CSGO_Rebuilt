@@ -15,6 +15,7 @@ public:
 	bool ShouldBlendAimSequenceToIdle();
 	bool ShouldResetGroundSpeed(int nOldActivity, int nNewAct);
 	float GetFeetYawRate();
+	void RestartMainSequence();
 
 	char pad[2];
 	float m_flMaxBodyYawDegrees;

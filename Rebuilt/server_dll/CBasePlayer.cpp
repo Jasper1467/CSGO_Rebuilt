@@ -17,8 +17,8 @@ int CBasePlayer::DetermineSimulationTicks()
 		nSimulationTicks += pCtx->m_nNumCommands + pCtx->m_nDroppedPackets;
 	}
 
-	if (nSimulationTicks > v1 + 0x49B)
-		nSimulationTicks = v1 + 0x49B;
+	if (nSimulationTicks > uintptr_t(this) + 0x49B)
+		nSimulationTicks = uintptr_t(this) + 0x49B;
 
 	return nSimulationTicks;
 }

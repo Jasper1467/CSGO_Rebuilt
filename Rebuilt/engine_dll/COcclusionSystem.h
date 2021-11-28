@@ -7,6 +7,8 @@ class VPlane;
 
 ConVar r_occlusionspew("r_occlusionspew", "0", 0x4000, "Activate/deactivates spew about what the occlusion system is doing.");
 
+#define OCCLUSION_SYSTEM_VIEWDATA_MAX 32
+
 class COcclusionSystem
 {
 public:
@@ -34,7 +36,7 @@ public:
 	};
 
 	int m_nCurrentViewId;
-	ViewData_t m_ViewData[32];
+	ViewData_t m_ViewData[OCCLUSION_SYSTEM_VIEWDATA_MAX];
 	char pad[500];
 	float m_flMaxOccluderArea;
 	float m_flMinOccluderArea;

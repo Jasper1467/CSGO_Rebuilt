@@ -1,6 +1,34 @@
 #include "CNetChan.h"
 #include <math.h>
 
+float CNetChan::GetNetTime()
+{
+	// DD 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC 55
+
+	return net_time;
+}
+
+float CNetChan::GetTimeConnected()
+{
+	// 55 8B EC 51 F2 0F 10 05 ? ? ? ?
+
+	return fmaxf(net_time - m_dbConnectTime, 0.0);
+}
+
+int CNetChan::GetBufferSize()
+{
+	// B8 80 00 00 00 C3 CC CC CC CC CC
+
+	return NET_FRAMES_BACKUP;
+}
+
+int CNetChan::GetRate()
+{
+	// 8B 81 18 01 00 00
+
+	return m_nRate;
+}
+
 bool CNetChan::IsTimingOut()
 {
 	// F3 0F 10 81 5C 41 00 00
@@ -11,12 +39,11 @@ bool CNetChan::IsTimingOut()
 	return net_time > m_flLastReceived + CONNECTION_PROBLEM_TIME;
 }
 
-void CNetChan::SetChoked()
+float CNetChan::GetTimeSinceLastReceived()
 {
-	// FF 41 18 FF 41 2C
+	// 55 8B EC 51 F3 0F 10 81 0C 01 00 00
 
-	m_nOutSequenceNr++;
-	m_nChokedPackets++;
+	return fmaxf(net_time - m_flLastReceived, 0.0f);
 }
 
 void CNetChan::SetTimeout(float flSeconds, bool bForceExact)
@@ -42,9 +69,10 @@ void CNetChan::SetTimeout(float flSeconds, bool bForceExact)
 		m_flTimeout = 3600.f;
 }
 
-float CNetChan::GetTimeSinceLastReceived()
+void CNetChan::SetChoked()
 {
-	// 55 8B EC 51 F3 0F 10 81 0C 01 00 00
+	// FF 41 18 FF 41 2C
 
-	return fmaxf(net_time - m_flLastReceived, 0.0f);
+	m_nOutSequenceNr++;
+	m_nChokedPackets++;
 }

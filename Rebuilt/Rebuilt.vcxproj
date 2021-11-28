@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="client_dll\CCSGOPlayerAnimState.h" />
     <ClInclude Include="client_dll\CBoneSnapshot.h" />
+    <ClInclude Include="client_dll\CCSWeaponSystem.h" />
     <ClInclude Include="client_dll\CEngineTrace.h" />
     <ClInclude Include="client_dll\CGameMovement.h" />
     <ClInclude Include="client_dll\CMoveHelperClient.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="engine_dll\ConVar.h" />
     <ClInclude Include="filesystem_stdio_dll\CFileSystem_Stdio.h" />
     <ClInclude Include="mixed\AnimationStuff.h" />
+    <ClInclude Include="mixed\bitbuf.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
     <ClInclude Include="mixed\CUserCmd.h" />
     <ClInclude Include="mixed\CUtlVector.h" />
@@ -60,6 +62,7 @@
     <ClInclude Include="server_dll\CCSPlayer.h" />
     <ClInclude Include="server_dll\CCSPlayerAnimState.h" />
     <ClInclude Include="server_dll\CEngineTrace.h" />
+    <ClInclude Include="server_dll\CCSGameStats.h" />
     <ClInclude Include="server_dll\CLagCompensationManager.h" />
     <ClInclude Include="server_dll\CMoveHelperServer.h" />
     <ClInclude Include="server_dll\CTakeDamageInfo.h" />
@@ -83,6 +86,7 @@
     <ClCompile Include="server_dll\CBasePlayer.cpp" />
     <ClCompile Include="server_dll\CBasePlayerAnimState.cpp" />
     <ClCompile Include="server_dll\CCSGOPlayerAnimState.cpp" />
+    <ClCompile Include="server_dll\CCSPlayerAnimState.cpp" />
     <ClCompile Include="server_dll\CMoveHelperServer.cpp" />
     <ClCompile Include="server_dll\CTakeDamageInfo.cpp" />
   </ItemGroup>
