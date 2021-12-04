@@ -70,7 +70,7 @@ enum SpeedCropped_t
 	SPEED_CROPPED_WEAPON = 0x2,
 };
 
-// TEMP NOTE?: jump impulse = sqrt2(2 * gravity * height)
+// TEMP NOTE?: jump impulse = sqrt(2 * gravity * height)
 
 class CGameMovement
 {

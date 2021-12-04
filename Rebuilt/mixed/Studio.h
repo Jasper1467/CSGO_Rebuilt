@@ -25,5 +25,6 @@ struct CStudioHdr
 	void* m_boneParent;
 };
 
-// Ref: E8 ? ? ? ? 66 C7 86 14 34 00 00 00 00
+// Ref: CBoneSnapshot::Init
+// client.dll E8 ? ? ? ? 66 C7 86 14 34 00 00 00 00
 #define MAXSTUDIOBONES 256
