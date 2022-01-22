@@ -3,7 +3,12 @@
 #include "../mixed/mathlib.h"
 #include "ConVar.h"
 
-class VPlane;
+class VPlane
+{
+public:
+	Vector m_vecNormal;
+	float m_flDist;
+};
 
 ConVar r_occlusionspew("r_occlusionspew", "0", 0x4000, "Activate/deactivates spew about what the occlusion system is doing.");
 

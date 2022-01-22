@@ -26,6 +26,9 @@ struct player_info_t
 	unsigned __int8 m_FilesDownloaded;
 };
 
+bool g_bDedicatedServer;
+char g_szComGameDir[260];
+
 class CEngineClient
 {
 public:
@@ -42,6 +45,8 @@ public:
 	bool IsOccluded();
 	int GetCurrentViewId();
 	const char* GetGameDirectory();
+	void* GetAchievementMgr();
+	float GetLastTimeStamp();
 };
 
 // Using as interface

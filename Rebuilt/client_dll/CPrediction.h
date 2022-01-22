@@ -4,6 +4,7 @@
 #include "../mixed/CGlobalVarsBase.h"
 #include <cstdint>
 #include <cstddef>
+#include "../mixed/SomeDefs.h"
 
 ConVar cl_predict = ConVar("cl_predict", "1.5", 0x400200, "Perform client side prediction.");
 
@@ -17,6 +18,10 @@ class CHudElement;
 class CPrediction
 {
 public:
+	void Init();
+	void Update(int nStartFrame, bool bValidFrame, int nIncomingAck, int nOutgoingCmd);
+
+	void _Update(int nSlot, bool bReceivedNewWorldUpdate, bool bValidFrame, int nIncomingAck, int nOutCmd);
 
 	struct Split_t
 	{
@@ -31,7 +36,7 @@ public:
 		void* m_EntitiesWithPredictionErrorsInLastAck;
 		bool m_bPerformedTickShift;
 	};
-	
+
 	uintptr_t m_hLastGround;
 	bool m_bInPrediction;
 	bool m_bIsFirstTimePredicted;
@@ -40,8 +45,10 @@ public:
 	int m_nPreviousStartFrame;
 	int m_nIncomingPacketNumber;
 	float m_flLastServerWorldTimeStamp;
-	Split_t m_Split[1];
-	CGlobalVarsBase* m_SavedVars;
-	char pad[100];
-	CHudElement* m_pPDumpPanel;
+	Split_t m_Split[MAX_SPLITSCREEN_PLAYERS];
+	CGlobalVarsBase m_SavedVars;
+	char pad[76];
+	bool m_bPlayerOriginTypedescriptionSearched;
+	char pad1[22];
+	void* m_pPDumpPanel;
 };

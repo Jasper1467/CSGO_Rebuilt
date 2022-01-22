@@ -3,15 +3,48 @@
 #include "../mixed/CUtlVector.h"
 #include "../mixed/Vectors.h"
 #include "../mixed/SomeDefs.h"
+#include "../mixed/Color.h"
 
-class CHud;
+class CHud
+{
+public:
+	CHudElement* FindElement(const char* szName);
+};
+
+CHud* g_pHud; // Interface
+
 class CHudElement
 {
 public:
-	
-	bool m_bUnknown_4545;
-	bool m_bActive;
+	void SetHud(CHud* pHud)
+	{
+		m_pHud = pHud;
+	}
+
+	bool IsActive()
+	{
+		return m_bActive;
+	}
+
+	void SetActive(bool bActive)
+	{
+		m_bActive = bActive;
+	}
+
+	void SetHiddenBits(int nHiddenBits)
+	{
+		m_nHiddenBits = nHiddenBits;
+	}
+
+	void SetIgnoreGlobalHudDisable(bool bIgnore)
+	{
+		m_bIgnoreGlobalHudDisable = bIgnore;
+	}
+
+	// NOTE: I'm pretty sure i messed something up here
 	bool m_bUnknown;
+	bool m_bActive;
+	bool m_bUnknown1;
 	int m_nHiddenBits;
 	int m_nSplitScreenPlayerSlot;
 	bool m_bIgnoreGlobalHudDisable;
@@ -20,6 +53,27 @@ public:
 	bool m_bIsParentedToClientDLLRootPanel;
 	CUtlVector<int> m_HudRenderGroups;
 	CHud* m_pHud;
+};
+
+namespace vgui
+{
+	typedef unsigned long HFont;
+	class Label;
+}
+
+#define MIN_HUDHINT_DISPLAY_TIME 7.f
+
+class CHudHintDisplay : public CHudElement
+{
+public:
+
+	char pad[72];
+	bool m_bLastLabelUpdateHack;
+	char pad1[275];
+	vgui::HFont m_hFont;
+	Color m_colBackground;
+	vgui::Label* m_pLabel;
+	CUtlVector<vgui::Label*> m_Labels;
 };
 
 class CBaseHudWeaponSelection : public CHudElement
@@ -32,8 +86,9 @@ public:
 	void* m_hSelectedWeapon;
 };
 
-// NOTE: This is from a while ago
-// Don't know how accurate this is but i'll redo this
+
+#define MAPOVERVIEW_MAX_ICONS 28
+
 class CMapOverview
 {
 public:
@@ -41,53 +96,34 @@ public:
 	{
 	public:
 
-		char pad[132];
-		Vector m_vecPosition;
-		QAngle m_angAngle;
-		Vector m_vecHudPosition;
-		float m_flHudRotation;
-		float m_flHudScale;
-		float m_flRoundStartTime;
-		float m_flDeadTime;
-		float m_flGhostTime;
-		float m_flCurrentAlpha;
-		float m_flLastColorUpdate;
-		int m_nCurrentVisibilityFlags;
-		int m_nIndex;
-		int m_nEntityID;
+		char pad[186];
+		int m_nVisibilityFlags;
+		char pad1[8];
+		int m_nEntityId;
 		int m_nHealth;
-		wchar_t m_wszName[129];
-		int m_nPlayerType;
-		int m_nAboveOrBelow;
-		float m_flGrenadeExpireTime;
-		int m_nIconPackType;
-		bool m_bIsActive;
-		bool m_bOfflineMap;
-		bool m_bIsPlayer;
-		bool m_bIsSelected;
-		bool m_bIsSpeaking;
-		bool m_bIsDead;
-		bool m_bIsBot;
-		bool m_bIsMobingHostage;
-		bool m_bIsSpottedByFriendsOnly;
-		bool m_bIsSpotted;
-		bool m_bIsRescued;
-		bool m_bIsOnLocalTeam;
-		bool m_bIsDefuser;
-		bool m_bHostageIsUsed;
+		char pad2[132];
+		int m_nTeamNum;
 	};
 
-	char pad[69];
-	Vector m_vecMapOrigin;
-	float m_flMapSize;
-	float m_flMapScale;
-	float m_flPixelToRadarScale;
-	float m_flWorldToPixelScale;
-	float m_flWorldToRadarScale;
-	Vector m_RadarViewpointWorld;
-	Vector m_RadarViewpointMap;
-	float m_RadarRotation;
-	Vector m_BombPosition;
-	float m_fBombSeenTime;
-	float m_fBombAlpha;
+	char pad[292];
+	float m_flHudScale;
+	float m_flUnknown;
+	Vector m_vecRadarViewpointWorld;
+	Vector m_vecRadarViewpointMap;
+	float m_flRadarRotation;
+	Vector m_vecBombPosition;
+	float m_flBombSeenTime;
+	float m_flBombAlpha;
+	Vector m_vecDefuserPosition;
+	float m_flDefuserSeenTime;
+	float m_flDefuserAlpha;
+	char pad2[128];
+	int m_nLastPlayerIndex;
+	char pad3[368];
+	CMapOverviewIconPackage m_Players[65];
+	wchar_t m_wszLocationText[129];
+	char pad4[45982];
+	int m_nBombEntIndex;
+	int m_nUnknown;
+	bool m_bTrackDefusers;
 };

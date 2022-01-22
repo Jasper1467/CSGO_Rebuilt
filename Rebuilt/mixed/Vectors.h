@@ -623,6 +623,95 @@ public:
 class VMatrix
 {
 public:
+	VMatrix() = default;
+
+	constexpr VMatrix(
+		const float m00, const float m01, const float m02, const float m03,
+		const float m10, const float m11, const float m12, const float m13,
+		const float m20, const float m21, const float m22, const float m23,
+		const float m30, const float m31, const float m32, const float m33)
+	{
+		m[0][0] = m00; m[0][1] = m01; m[0][2] = m02; m[0][3] = m03;
+		m[1][0] = m10; m[1][1] = m11; m[1][2] = m12; m[1][3] = m13;
+		m[2][0] = m20; m[2][1] = m21; m[2][2] = m22; m[2][3] = m23;
+		m[3][0] = m30; m[3][1] = m31; m[3][2] = m32; m[3][3] = m33;
+	}
+
+	float* operator[](const int nIndex)
+	{
+		return m[nIndex];
+	}
+
+	const float* operator[](const int nIndex) const
+	{
+		return m[nIndex];
+	}
+
+	constexpr VMatrix& operator+=(const VMatrix& matAdd)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			for (int n = 0; n < 4; n++)
+				this->m[i][n] += matAdd[i][n];
+		}
+
+		return *this;
+	}
+
+	constexpr VMatrix& operator-=(const VMatrix& matSubtract)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			for (int n = 0; n < 4; n++)
+				this->m[i][n] -= matSubtract[i][n];
+		}
+
+		return *this;
+	}
+
+	VMatrix operator*(const VMatrix& matMultiply) const
+	{
+		return VMatrix(
+			m[0][0] * matMultiply.m[0][0] + m[0][1] * matMultiply.m[1][0] + m[0][2] * matMultiply.m[2][0] + m[0][3] * matMultiply.m[3][0],
+			m[0][0] * matMultiply.m[0][1] + m[0][1] * matMultiply.m[1][1] + m[0][2] * matMultiply.m[2][1] + m[0][3] * matMultiply.m[3][1],
+			m[0][0] * matMultiply.m[0][2] + m[0][1] * matMultiply.m[1][2] + m[0][2] * matMultiply.m[2][2] + m[0][3] * matMultiply.m[3][2],
+			m[0][0] * matMultiply.m[0][3] + m[0][1] * matMultiply.m[1][3] + m[0][2] * matMultiply.m[2][3] + m[0][3] * matMultiply.m[3][3],
+
+			m[1][0] * matMultiply.m[0][0] + m[1][1] * matMultiply.m[1][0] + m[1][2] * matMultiply.m[2][0] + m[1][3] * matMultiply.m[3][0],
+			m[1][0] * matMultiply.m[0][1] + m[1][1] * matMultiply.m[1][1] + m[1][2] * matMultiply.m[2][1] + m[1][3] * matMultiply.m[3][1],
+			m[1][0] * matMultiply.m[0][2] + m[1][1] * matMultiply.m[1][2] + m[1][2] * matMultiply.m[2][2] + m[1][3] * matMultiply.m[3][2],
+			m[1][0] * matMultiply.m[0][3] + m[1][1] * matMultiply.m[1][3] + m[1][2] * matMultiply.m[2][3] + m[1][3] * matMultiply.m[3][3],
+
+			m[2][0] * matMultiply.m[0][0] + m[2][1] * matMultiply.m[1][0] + m[2][2] * matMultiply.m[2][0] + m[2][3] * matMultiply.m[3][0],
+			m[2][0] * matMultiply.m[0][1] + m[2][1] * matMultiply.m[1][1] + m[2][2] * matMultiply.m[2][1] + m[2][3] * matMultiply.m[3][1],
+			m[2][0] * matMultiply.m[0][2] + m[2][1] * matMultiply.m[1][2] + m[2][2] * matMultiply.m[2][2] + m[2][3] * matMultiply.m[3][2],
+			m[2][0] * matMultiply.m[0][3] + m[2][1] * matMultiply.m[1][3] + m[2][2] * matMultiply.m[2][3] + m[2][3] * matMultiply.m[3][3],
+
+			m[3][0] * matMultiply.m[0][0] + m[3][1] * matMultiply.m[1][0] + m[3][2] * matMultiply.m[2][0] + m[3][3] * matMultiply.m[3][0],
+			m[3][0] * matMultiply.m[0][1] + m[3][1] * matMultiply.m[1][1] + m[3][2] * matMultiply.m[2][1] + m[3][3] * matMultiply.m[3][1],
+			m[3][0] * matMultiply.m[0][2] + m[3][1] * matMultiply.m[1][2] + m[3][2] * matMultiply.m[2][2] + m[3][3] * matMultiply.m[3][2],
+			m[3][0] * matMultiply.m[0][3] + m[3][1] * matMultiply.m[1][3] + m[3][2] * matMultiply.m[2][3] + m[3][3] * matMultiply.m[3][3]);
+	}
+
+	constexpr void Identity()
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			for (int n = 0; n < 4; n++)
+				this->m[i][n] = i == n ? 1.0f : 0.0f;
+		}
+	}
+
+	const matrix3x4_t& As3x4() const
+	{
+		return *reinterpret_cast<const matrix3x4_t*>(this);
+	}
+
+	matrix3x4_t& As3x4()
+	{
+		return *reinterpret_cast<matrix3x4_t*>(this);
+	}
+
 	float m[4][4];
 };
 

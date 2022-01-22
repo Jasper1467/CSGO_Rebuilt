@@ -23,8 +23,6 @@ INetChannelInfo* CEngineClient::GetNetChannelInfo()
 	return (INetChannelInfo*)g_pClientState->m_pNetChannel;
 }
 
-bool g_bDedicatedServer;
-
 const char* CEngineClient::GetLevelName()
 {
 	if (g_bDedicatedServer)
@@ -61,8 +59,6 @@ int CEngineClient::GetCurrentViewId()
 {
 	return g_pOcclusionSystem->GetCurrentViewId();
 }
-
-char g_szComGameDir[260];
 
 const char* CEngineClient::GetGameDirectory()
 {

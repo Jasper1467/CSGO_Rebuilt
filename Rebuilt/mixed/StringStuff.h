@@ -144,14 +144,14 @@ static int V_snprintf(char* szDest, int nMaxLen, const char* szFormat, ...)
     return result;
 }
 
-const char* V_GetFileName(const char* m_szName)
+const char* V_GetFileName(const char* szName)
 {
     const char* result; // eax
     char v2; // dl
 
-    if (!m_szName || !*m_szName)
-        return m_szName;
-    for (result = &m_szName[strlen(m_szName) - 1]; result > m_szName; --result)
+    if (!szName || !*szName)
+        return szName;
+    for (result = &szName[strlen(szName) - 1]; result > szName; --result)
     {
         v2 = *(result - 1);
         if (v2 == '\\')

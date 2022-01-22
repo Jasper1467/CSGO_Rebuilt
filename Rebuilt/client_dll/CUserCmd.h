@@ -48,3 +48,9 @@ public:
 	QAngle m_angHeadAngles;
 	Vector m_vecHeadOffset;
 };
+
+struct CVerifiedUserCmd
+{
+	CUserCmd m_Cmd;
+	CRC32_t m_nCrc;
+};

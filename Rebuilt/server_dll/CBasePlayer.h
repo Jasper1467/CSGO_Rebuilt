@@ -42,3 +42,5 @@ public:
 	QAngle m_viewPunchAngle; // this + 0xA4C
 	bool m_bIsUnderwater; // this + 0x10F8
 };
+
+inline CBasePlayer* g_pLocalPlayer;

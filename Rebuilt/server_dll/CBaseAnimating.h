@@ -43,7 +43,6 @@ public:
 	CBaseEntity* m_pOwner;
 };
 
-
 class CBaseAnimating
 {
 public:

@@ -53,6 +53,18 @@
     <ClInclude Include="engine_dll\VoiceRecord_DSound.h" />
     <ClInclude Include="engine_dll\CGameClient.h" />
     <ClInclude Include="mixed\ProtobufEnums.h" />
+    <ClInclude Include="client_dll\C_GameInstructor.h" />
+    <ClInclude Include="mixed\CMaterialSystem.h" />
+    <ClInclude Include="client_dll\C_BreakableSurface.h" />
+    <ClInclude Include="client_dll\CHud.h" />
+    <ClInclude Include="mixed\Color.h" />
+    <ClInclude Include="client_dll\ClientModeShared.h" />
+    <ClInclude Include="mixed\WeaponStuff.h" />
+    <ClInclude Include="engine_dll\CEngineVGui.h" />
+    <ClInclude Include="engine_dll\CEngineUniformRandomStream.h" />
+    <ClInclude Include="engine_dll\CEngineAPI.h" />
+    <ClInclude Include="mixed\IAppSystem.h" />
+    <ClInclude Include="client_dll\CGameUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
@@ -75,5 +87,9 @@
     <ClCompile Include="server_dll\CBaseEntity.cpp" />
     <ClCompile Include="server_dll\CCSPlayerAnimState.cpp" />
     <ClCompile Include="engine_dll\VoiceRecord_DSound.cpp" />
+    <ClCompile Include="client_dll\ClientModeShared.cpp" />
+    <ClCompile Include="engine_dll\CEngineVGui.cpp" />
+    <ClCompile Include="client_dll\CGameUI.cpp" />
+    <ClCompile Include="client_dll\CPrediction.cpp" />
   </ItemGroup>
 </Project>

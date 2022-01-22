@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../mixed/Vectors.h"
+#include "C_BaseEntity.h"
 
 class C_BaseCombatWeapon
 {
@@ -14,7 +15,9 @@ public:
 	int GetZoomLevels(); // index 443
 };
 
-class C_BasePlayer
+ConVar sv_maxspeed = ConVar("sv_maxspeed", "450", 0x82100, "");
+
+class C_BasePlayer : public C_BaseEntity
 {
 public:
 	int GetPlayerState(); // index 294
@@ -22,6 +25,22 @@ public:
 	C_BaseCombatWeapon* GetActiveWeapon();
 	float GetPlayerMaxSpeed(); // index 276
 	void GetPredictionErrorSmoothingVector(Vector vecOffset);
+	void CalcViewBob(Vector& vecEyeOrigin);
+	void SetPlayerUnderwater(bool bState);
+
+	const char* GetPlayerModelName()
+	{
+		return "models/player.mdl";
+	}
+
+	bool IsAlive()
+	{
+		return m_lifeState == 0;
+	}
+
+	float GetPlayerMaxSpeed();
+
+	void NotePredictionError(Vector& vecDelta);
 
 	int m_iHealth; // this + 0x100
 	int m_fFlags; // this + 0x104
@@ -64,4 +83,13 @@ public:
 	int m_nTickBase; // this + 0x3440
 	float m_flLaggedMovementValue; // this + 0x35A4
 	char m_szLastPlaceName[18]; // this + 0x35C4
+	Vector m_vecHack_RecvProxy_LocalPlayerOriginX; // this +0x3800
+	float m_flOldFallVelocity; // this + 0x3028
+	bool m_bInLanding; // this + 0x3061
+	float m_flLandingTime; // this + 0x3064
+	bool m_bPlayerUnderwater; // this + 0x358C
+	float m_flPredictionErrorTime; // this + 0x35B4
+	Vector m_vecPredictionError; // this + 0x35A8
 };
+
+inline C_BasePlayer* g_pLocalPlayer;

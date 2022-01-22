@@ -25,11 +25,12 @@
 #define MIN_MOVE_FRACTION 0.0001f
 #define EFFECTIVELY_HORIZONTAL_NORMAL_Z	0.0001f
 
-// TODO: check this
 #define MIN_JUMP_SPEED 145.f
 
 // https://github.com/perilouswithadollarsign/cstrike15_src/blob/f82112a2388b841d72cb62ca48ab1846dfcc11c8/game/shared/gamemovement.cpp#L1975-L1976
 #define MAX_ACCEL_WISHSPEED 30.f
+
+#define VELOCITY_RECOVERY_RATE 0.4f
 
 struct CMoveData
 {
@@ -69,6 +70,15 @@ enum SpeedCropped_t
 	SPEED_CROPPED_DUCK = 0x1,
 	SPEED_CROPPED_WEAPON = 0x2,
 };
+
+enum IntervalType_t
+{
+	INTERVAL_TYPE_GROUND = 0x0,
+	INTERVAL_TYPE_STUCK = 0x1,
+	INTERVAL_TYPE_LADDER = 0x2,
+	INTERVAL_TYPE_LADDER_WEDGE = 0x3,
+};
+
 
 // TEMP NOTE?: jump impulse = sqrt(2 * gravity * height)
 

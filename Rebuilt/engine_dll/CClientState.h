@@ -17,8 +17,9 @@ enum SingonState_t
 
 class ClientClass;
 
-struct CEventInfo
+class CEventInfo
 {
+public:
 	__int16 m_nClassId;
 	float m_flFireDelay;
 	const void* m_pSendTable;
@@ -30,8 +31,9 @@ struct CEventInfo
 	CEventInfo* m_pNextEvent;
 };
 
-struct CClockDriftMgr
+class CClockDriftMgr
 {
+public:
 	float m_ClockOffsets[16];
 	uint32_t m_nCurClockOffset;
 	uint32_t m_nServerTick;

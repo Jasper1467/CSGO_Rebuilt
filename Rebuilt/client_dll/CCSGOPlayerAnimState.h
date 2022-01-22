@@ -136,4 +136,3 @@ public:
 	bool m_bUnknownBool__;
 	bool m_bIsAccelerating;
 };
-
