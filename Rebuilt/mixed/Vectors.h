@@ -47,16 +47,6 @@ public:
 		return ((float*)this)[i];
 	}
 
-	float& operator[](int i)
-	{
-		return ((float*)this)[i];
-	}
-
-	float operator[](int i) const
-	{
-		return ((float*)this)[i];
-	}
-
 	bool operator==(const Vector& src) const
 	{
 		return (src.x == x) && (src.y == y) && (src.z == z);
@@ -296,16 +286,6 @@ public:
 	void Reset()
 	{
 		x = y = z = 0.0f;
-	}
-
-	float& operator[](int i)
-	{
-		return ((float*)this)[i];
-	}
-
-	float operator[](int i) const
-	{
-		return ((float*)this)[i];
 	}
 
 	float& operator[](int i)
@@ -625,7 +605,7 @@ class VMatrix
 public:
 	VMatrix() = default;
 
-	constexpr VMatrix(
+	VMatrix(
 		const float m00, const float m01, const float m02, const float m03,
 		const float m10, const float m11, const float m12, const float m13,
 		const float m20, const float m21, const float m22, const float m23,
@@ -747,16 +727,6 @@ public:
 	void Reset()
 	{
 		x = y = 0.0f;
-	}
-
-	float& operator[](int i)
-	{
-		return ((float*)this)[i];
-	}
-
-	float operator[](int i) const
-	{
-		return ((float*)this)[i];
 	}
 
 	float& operator[](int i)

@@ -11,8 +11,8 @@ public:
 class CWeaponCSBase
 {
 public:
-	int GetCSZoomLevel(); // index 442
-	int GetZoomLevels(); // index 443
+	int GetCSZoomLevel(); // 442
+	int GetZoomLevels(); // 443
 };
 
 ConVar sv_maxspeed = ConVar("sv_maxspeed", "450", 0x82100, "");
@@ -20,10 +20,10 @@ ConVar sv_maxspeed = ConVar("sv_maxspeed", "450", 0x82100, "");
 class C_BasePlayer : public C_BaseEntity
 {
 public:
-	int GetPlayerState(); // index 294
-	bool IsAlive(); // index 158
+	int GetPlayerState(); // 294
+	bool IsAlive(); // 158
 	C_BaseCombatWeapon* GetActiveWeapon();
-	float GetPlayerMaxSpeed(); // index 276
+	float GetPlayerMaxSpeed(); // 276
 	void GetPredictionErrorSmoothingVector(Vector vecOffset);
 	void CalcViewBob(Vector& vecEyeOrigin);
 	void SetPlayerUnderwater(bool bState);

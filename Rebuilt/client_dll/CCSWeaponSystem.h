@@ -5,12 +5,7 @@ class CCSWeaponSystem
 public:
 	const char* GetName()
 	{
-		const char* v1 = m_szName;
-		const char* result = "unnamed";
-		if (v1)
-			result = v1;
-
-		return result;
+		return m_szName ? m_szName : "unnamed";
 	}
 
 	char pad[4];

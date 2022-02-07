@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../mixed/CUserCmd.h"
+#include "../mixed/bitbuf.h"
 
 class CUserCmd
 {
@@ -48,6 +49,11 @@ public:
 	QAngle m_angHeadAngles;
 	Vector m_vecHeadOffset;
 };
+
+void WriteUsercmd(bf_write* pBuffer, CUserCmd* pToCmd, CUserCmd* pFromCmd)
+{
+
+}
 
 struct CVerifiedUserCmd
 {

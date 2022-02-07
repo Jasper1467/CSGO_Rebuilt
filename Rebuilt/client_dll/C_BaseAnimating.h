@@ -9,7 +9,7 @@ public:
 	int LookupBone(const char* szName);
 	void* GetModelPtr();
 	bool ShouldSkipAnimationFrame();
-	bool IsPlayer(); // Index 158
+	bool IsPlayer(); // 158
 
 	void* m_pModelPtr; // this[2644]
 	int m_nLastNonSkippedFrame; // this[666]

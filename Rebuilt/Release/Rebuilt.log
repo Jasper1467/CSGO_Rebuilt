@@ -1,0 +1,52 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1088,5): warning MSB8027: Two or more files with the name of CCSGOPlayerAnimState.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are client_dll\CCSGOPlayerAnimState.cpp, server_dll\CCSGOPlayerAnimState.cpp.
+  CBoneSnapshot.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\CBoneSnapshot.cpp(3,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CCSGOPlayerAnimState.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\CCSGOPlayerAnimState.cpp(2,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CGameMovement.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\CGameMovement.cpp(278,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CGameUI.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\CGameUI.cpp(17,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CInput.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\CInput.cpp(51,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  ClientModeShared.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\ClientModeShared.cpp(29,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CMoveHelperClient.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\CMoveHelperClient.cpp(20,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CPrediction.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\CPrediction.cpp(35,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  C_BaseAnimating.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\C_BaseAnimating.cpp(81,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  C_BasePlayer.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\C_BasePlayer.cpp(110,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  C_CSGameRules.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\C_CSGameRules.cpp(9,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  C_CSPlayer.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\client_dll\C_CSPlayer.cpp(35,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CEngineClient.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\engine_dll\CEngineClient.cpp(67,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CEngineVGui.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\engine_dll\CEngineVGui.cpp(49,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CNetChan.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\engine_dll\CNetChan.cpp(79,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  COcclusionSystem.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\engine_dll\COcclusionSystem.cpp(64,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  VoiceRecord_DSound.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\engine_dll\VoiceRecord_DSound.cpp(78,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CFileSystem_Stdio.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\filesystem_stdio_dll\CFileSystem_Stdio.cpp(2,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CBaseEntity.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\server_dll\CBaseEntity.cpp(58,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CBasePlayer.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\server_dll\CBasePlayer.cpp(25,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Compiling...
+  CBasePlayerAnimState.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\server_dll\CBasePlayerAnimState.cpp(64,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CCSGOPlayerAnimState.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\server_dll\CCSGOPlayerAnimState.cpp(31,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CCSPlayerAnimState.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\server_dll\CCSPlayerAnimState.cpp(25,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CMoveHelperServer.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\server_dll\CMoveHelperServer.cpp(27,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  CTakeDamageInfo.cpp
+D:\Random\Jasper1467\REVERSALS\csgo\csgo_23_9_2021\Rebuilt\Rebuilt\server_dll\CTakeDamageInfo.cpp(65,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?

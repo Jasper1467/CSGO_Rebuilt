@@ -7,7 +7,7 @@ class C_BaseEntity
 {
 public:
 	int entindex();
-	bool PredictionErrorShouldResetLatchedForAllPredictables() { return true; } // Index 133
+	bool PredictionErrorShouldResetLatchedForAllPredictables() { return true; } // 133
 
 	void* GetPredictedFrame(int nFrameNumber)
 	{

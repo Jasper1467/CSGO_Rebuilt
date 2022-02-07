@@ -65,6 +65,8 @@
     <ClInclude Include="engine_dll\CEngineAPI.h" />
     <ClInclude Include="mixed\IAppSystem.h" />
     <ClInclude Include="client_dll\CGameUI.h" />
+    <ClInclude Include="server_dll\CCSEntitySpotting.h" />
+    <ClInclude Include="client_dll\CInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
@@ -91,5 +93,6 @@
     <ClCompile Include="engine_dll\CEngineVGui.cpp" />
     <ClCompile Include="client_dll\CGameUI.cpp" />
     <ClCompile Include="client_dll\CPrediction.cpp" />
+    <ClCompile Include="client_dll\CInput.cpp" />
   </ItemGroup>
 </Project>
