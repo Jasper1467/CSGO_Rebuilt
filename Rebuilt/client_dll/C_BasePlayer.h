@@ -21,7 +21,7 @@ class C_BasePlayer : public C_BaseEntity
 {
 public:
 	int GetPlayerState(); // 294
-	bool IsAlive(); // 158
+	bool IsAlive(); // 156
 	C_BaseCombatWeapon* GetActiveWeapon();
 	float GetPlayerMaxSpeed(); // 276
 	void GetPredictionErrorSmoothingVector(Vector vecOffset);

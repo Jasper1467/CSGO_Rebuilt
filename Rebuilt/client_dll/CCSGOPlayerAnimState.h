@@ -7,6 +7,7 @@
 #include "../engine_dll/CEngineClient.h"
 #include "../mixed/EntityStuff.h"
 #include "C_BaseAnimating.h"
+#include "../mixed/CUtlVector.h"
 
 inline bool IsPreCrouchUpdateDemo()
 {
@@ -41,15 +42,83 @@ struct C_AnimationLayer
 	float m_flWeightDeltaRate;
 	float m_flPlaybackRate;
 	float m_flCycle;
-	void* m_pOwner;
+	C_BaseAnimating* m_pOwner;
 	int m_nInvalidatePhysicsBits;
+
+	void SetOrder(int nOrder)
+	{
+		if (m_pOwner)
+		{
+			if (m_nOrder != nOrder && m_nOrder == 15)
+				m_pOwner->InvalidatePhysicsRecursive(BOUNDS_CHANGED);
+		}
+	}
+
+	void SetWeight(float flWeight)
+	{
+		if (m_pOwner)
+		{
+			if (flWeight != 0.0)
+				m_pOwner->InvalidatePhysicsRecursive(BOUNDS_CHANGED);
+		}
+
+		flWeight = 0.0;
+	}
+
+	void SetSequence(int nSequence)
+	{
+		if (m_pOwner)
+		{
+			if (nSequence != 0)
+				m_pOwner->InvalidatePhysicsRecursive(BOUNDS_CHANGED);
+		}
+
+		nSequence = 0;
+	}
+
+	void SetCycle(float flCycle)
+	{
+		if (m_pOwner)
+		{
+			if (flCycle != 0.0)
+				m_pOwner->InvalidatePhysicsRecursive(ANIMATION_CHANGED);
+		}
+
+		flCycle = 0.0;
+	}
+
+	void SetPlaybackRate(float flPlaybackRate)
+	{
+		m_flPlaybackRate = flPlaybackRate;
+	}
 };
 
 class C_BaseCombatWeapon;
 
+// NOTE: No vtable
 class CCSGOPlayerAnimState
 {
 public:
+	void Update(QAngle& angView);
+
+	void SetupVelocity();
+	void SetupAimMatrix();
+	void SetupWeaponAction();
+	void SetupMovement();
+	void SetupAliveloop();
+	void SetupWholeBodyAction();
+	void SetUpFlashedReaction();
+	void SetupFlinch();
+	void SetupLean();
+
+	void ApplyLayerOrderPreset(int* pNewPreset, bool bForce);
+	void UpdateLayerOrderPreset(int nLayer, int nSequence);
+	void UpdateAnimLayer(int nLayer, int nSequence, float flPlaybackRate, float flWeight, float flCycle);
+
+	void SetLayerSequence(int nlayer, int nSequence);
+
+	bool CacheSequences();
+
 	int* m_pLayerOrderPreset;
 	bool m_bFirstRunSinceInit;
 	bool m_bFirstFootPlantSinceInit;
@@ -80,7 +149,7 @@ public:
 	float m_flFeetWeight;
 	float m_flUnknown2;
 	float m_flDuckAmount;
-	float m_flHitGroundCycle;
+	float m_flDuckAdditional;
 	float m_flMoveWeight;
 	Vector m_vecOrigin;
 	Vector m_vecLastOrigin;
@@ -114,7 +183,7 @@ public:
 	char pad_0135[3];
 	bool m_bInBalanceAdjust;
 	char pad_0141[3];
-	void* m_ActivityModifiers;
+	CUtlVector<void*/*CUtlSymbol*/> m_ActivityModifiers;
 	float m_flLadderWeight;
 	int m_flLadderSpeed;
 	float m_flTimeOfLastInjury;
@@ -135,4 +204,28 @@ public:
 	int m_nStrafeSequence;
 	bool m_bUnknownBool__;
 	bool m_bIsAccelerating;
+	char pad_01AE[2];
+	animstate_pose_param_cache_t m_arrPoseParameters[20];
+	int m_iUnknownClientInt__;
+	float m_flStaticApproachSpeed;
+	int m_iMoveState;
+	float m_flMovePlaybackRate;
+	float m_flUnknownFL0;
+	float m_flUnknownFL;
+	float m_flUnknownFL1;
+	float m_flMinYawServer;
+	float m_flMaxYawServer;
+	float m_flMaximumPitchServer;
+	float m_flMinimumPitchServer;
+	int m_iUnknownInt;
+	char pad_02D0[84];
+	float m_flEyePosZ;
+	bool m_bIsDucked;
+	char pad_0329[3];
+	float m_flUnknownCap1;
+	float m_flMinYaw;
+	float m_flMaxYaw;
+	float m_flMinPitch;
+	float m_flMaxPitch;
+	int m_nAnimsetVersion;
 };

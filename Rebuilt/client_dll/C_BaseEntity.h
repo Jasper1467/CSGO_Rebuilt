@@ -6,7 +6,12 @@
 class C_BaseEntity
 {
 public:
+	Vector GetAbsOrigin(); // 10
+
 	int entindex();
+	void SetAbsAngles(QAngle angAngles);
+	void InvalidatePhysicsRecursive(int nBits);
+
 	bool PredictionErrorShouldResetLatchedForAllPredictables() { return true; } // 133
 
 	void* GetPredictedFrame(int nFrameNumber)
@@ -17,7 +22,7 @@ public:
 		return 0;
 	}
 
-	void _SUB_Remove()
+	void SUB_Remove()
 	{
 		if (m_iHealth > 0)
 		{
@@ -40,4 +45,6 @@ public:
 	unsigned char* m_pOriginalData; // this + 0x92C
 	int m_nIntermediateData_FirstPredictedShiftMarker; // this + 0x934
 	int m_nIntermediateDataCount; // this + 0x930
+
+	Vector m_vecOrigin; // this + 0xac
 };
