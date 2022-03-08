@@ -10,6 +10,7 @@ enum WeaponModelType_t
 
 enum WeaponMode_t
 {
+	WEAPONMODE_PRIMARY = 0x0,
 	WEAPONMODE_SECONDARY = 0x1,
 };
 
@@ -28,9 +29,9 @@ enum WeaponType_t
 
 // Ref: server.dll 0F 47 C8 80 7C 24 22 00
 #define KNIFE_MAX_DOT_FOR_BACKSTAB 0.475f
-// Ref: B9 30 00 00 00 0F 44 C1
+// Ref: server.dll B9 30 00 00 00 0F 44 C1
 #define KNIFE_RANGE_PRIMARY 48.f
-// Ref: B8 20 00 00 00 B9 30 00 00 00
+// Ref: server.dll B8 20 00 00 00 B9 30 00 00 00
 #define KNIFE_RANGE_SECONDARY 32.f
 
 // Ref: server.dll F3 0F 59 1D ? ? ? ? F3 0F 5C E1
