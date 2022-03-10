@@ -30,11 +30,11 @@ int C_BaseAnimating::LookupBone(const char* szName)
 	return v4;
 }
 
-void* C_BaseAnimating::GetModelPtr()
+CStudioHdr* C_BaseAnimating::GetModelPtr()
 {
 	// E8 ? ? ? ? 8B F0 85 F6 74 06
 
-	void* result; // eax
+	CStudioHdr* result; // eax
 
 	if (!m_pModelPtr && (*(int(__thiscall**)(void*))(this[1] + 32))(this + 1))
 		sub_101C87E0();

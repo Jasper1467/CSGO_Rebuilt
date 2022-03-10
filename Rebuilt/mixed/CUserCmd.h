@@ -3,7 +3,7 @@
 
 typedef uint32_t CRC32_t;
 
-enum CUserCmd_Buttons_t
+enum CUserCmd_Buttons_e
 {
 	IN_ATTACK = 0x1,
 	IN_JUMP = 0x2,

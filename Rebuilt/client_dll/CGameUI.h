@@ -6,7 +6,7 @@ void* g_pGameClientExports;
 void* g_pPanoramaUIEngineExports;
 void* g_pAchievementMgr;
 
-enum GameUIFailureReason_t
+enum GameUIFailureReason_e
 {
 	STEAMLOGINFAILURE_NOSTEAMLOGIN = 0x2,
 	STEAMLOGINFAILURE_VACBANNED = 0x3,

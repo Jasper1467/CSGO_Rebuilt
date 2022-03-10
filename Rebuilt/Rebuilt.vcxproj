@@ -41,6 +41,7 @@
     <ClInclude Include="client_dll\C_TempEntsSystem.h" />
     <ClInclude Include="client_dll\IPredictionSystem.h" />
     <ClInclude Include="engine_dll\CClientState.h" />
+    <ClInclude Include="engine_dll\CDownloadListGenerator.h" />
     <ClInclude Include="engine_dll\CEngineAPI.h" />
     <ClInclude Include="engine_dll\CEngineClient.h" />
     <ClInclude Include="engine_dll\CEngineTrace.h" />
@@ -57,6 +58,7 @@
     <ClInclude Include="mixed\bitbuf.h" />
     <ClInclude Include="mixed\CGlobalVarsBase.h" />
     <ClInclude Include="mixed\CMaterialSystem.h" />
+    <ClInclude Include="mixed\CMemAlloc.h" />
     <ClInclude Include="mixed\Color.h" />
     <ClInclude Include="mixed\CUserCmd.h" />
     <ClInclude Include="mixed\CUtlVector.h" />

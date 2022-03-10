@@ -1,6 +1,6 @@
 #pragma once
 
-enum Activity_t
+enum Activity_e
 {
 	ACT_RESET = 0x0,
 	ACT_IDLE = 0x1,

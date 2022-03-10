@@ -5,7 +5,7 @@
 class CCSEntitySpotting/* : public CAutoGameSystemPerFrame*/
 {
 public:
-	enum SpotRules_t
+	enum SpotRules_e
 	{
 		SPOT_RULE_ENEMY = 0x1,
 		SPOT_RULE_CT = 0x2,

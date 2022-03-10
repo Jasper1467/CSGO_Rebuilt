@@ -7,7 +7,7 @@ namespace vgui
 	typedef unsigned long HCursor;
 }
 
-enum ClientFrameStage_t
+enum ClientFrameStage_e
 {
     FRAME_START = 0x0,
     FRAME_NET_UPDATE_START = 0x1,

@@ -3,7 +3,7 @@
 #include "../mixed/Vectors.h"
 #include "CNetChan.h"
 
-enum SingonState_t
+enum SingonState_e
 {
 	SIGNONSTATE_NONE = 0x0,
 	SIGNONSTATE_CHALLENGE = 0x1,

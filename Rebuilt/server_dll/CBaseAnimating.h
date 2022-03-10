@@ -7,7 +7,6 @@
 class __declspec(align(4)) CAnimationLayer
 {
 public:
-
 	void SetCycle(float flCycle)
 	{
 		if (m_pOwner && m_flCycle != flCycle)
@@ -19,7 +18,7 @@ public:
 	int m_fFlags;
 	bool m_bSequenceFinished;
 	bool m_bLooping;
-	char pad_0x0006[2];
+	char pad[2];
 	int m_nSequence;
 	float m_flCycle;
 	float m_flPlaybackRate;
@@ -33,9 +32,9 @@ public:
 	float m_flLayerAnimTime;
 	float m_flLayerFadeOuttime;
 	void* m_pDispatchedStudioHdr;
-	Activity_t m_nDispatchedSrc;
-	Activity_t m_nDispatchedDst;
-	Activity_t m_nActivity;
+	Activity_e m_nDispatchedSrc;
+	Activity_e m_nDispatchedDst;
+	Activity_e m_nActivity;
 	int m_nPriority;
 	int m_nOrder;
 	float m_flLastEventCheck;

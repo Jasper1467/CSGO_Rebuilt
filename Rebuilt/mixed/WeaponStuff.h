@@ -1,6 +1,6 @@
 #pragma once
 
-enum WeaponModelType_t
+enum WeaponModelType_e
 {
 	WEAPONMODEL_UNRECOGNIZED = 0x0,
 	WEAPONMODEL_VIEWMODEL = 0x1,
@@ -8,13 +8,13 @@ enum WeaponModelType_t
 	WEAPONMODEL_UNCLASSIFIED = 0x4,
 };
 
-enum WeaponMode_t
+enum WeaponMode_e
 {
 	WEAPONMODE_PRIMARY = 0x0,
 	WEAPONMODE_SECONDARY = 0x1,
 };
 
-enum WeaponType_t
+enum WeaponType_e
 {
 	WEAPONTYPE_KNIFE = 0x0,
 	WEAPONTYPE_PISTOL = 0x1,

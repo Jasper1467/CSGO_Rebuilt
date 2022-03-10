@@ -1,6 +1,6 @@
 #pragma once
 
-enum TERecordingType_t
+enum TERecordingType_e
 {
 	TE_UNKNOWN_0 = 0x0,
 	TE_UNKNOWN_1 = 0x1,

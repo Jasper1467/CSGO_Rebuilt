@@ -5,6 +5,16 @@
 #define LAGCOMP_FRACTION_SCALE 0.95f
 #define LAGCOMP_TELEPORTED_DISTANCE_SQR (64.0f * 64.0f)
 
+enum LagCompensationState_e
+{
+	LC_NO = 0x0,
+	LC_ALIVE = 0x1,
+	LC_ORIGIN_CHANGED = 0x100,
+	LC_ANGLES_CHANGED = 0x200,
+	LC_SIZE_CHANGED = 0x400,
+	LC_ANIMATION_CHANGED = 0x800,
+};
+
 struct LayerRecord
 {
 	int m_nSequence;
@@ -12,7 +22,6 @@ struct LayerRecord
 	float m_flWeight;
 	int m_nOrder;
 };
-
 
 struct LagRecord
 {
@@ -26,16 +35,6 @@ struct LagRecord
 	int m_nMasterSequence;
 	float m_flMasterCycle;
 	float m_flPoseParameters[24];
-};
-
-enum LagCompensationState_t
-{
-	LC_NO = 0x0,
-	LC_ALIVE = 0x1,
-	LC_ORIGIN_CHANGED = 0x100,
-	LC_ANGLES_CHANGED = 0x200,
-	LC_SIZE_CHANGED = 0x400,
-	LC_ANIMATION_CHANGED = 0x800,
 };
 
 class CLagCompensationManager

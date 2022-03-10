@@ -1,6 +1,6 @@
 #pragma once
 
-enum TryCastVoteResult_t
+enum TryCastVoteResult_e
 {
 	VOTE_CAST_OK = 0x0,
 	VOTE_CAST_FAIL_SERVER_DISABLE = 0x1,

@@ -12,7 +12,7 @@ class IMaterial;
 
 typedef struct InputContextHandle_t__* InputContextHandle_t;
 
-enum VGuiPanel_t
+enum VGuiPanel_e
 {
 	PANEL_ROOT = 0x1,
 	PANEL_CLIENTDLL = 0x2,

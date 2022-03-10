@@ -268,24 +268,24 @@ public:
 
 	void Init(float _x = 0.0f, float _y = 0.0f, float _z = 0.0f)
 	{
-		x = _x;
-		y = _y;
-		z = _z;
+		pitch = _x;
+		yaw = _y;
+		roll = _z;
 	}
 
 	bool IsValid()
 	{
-		return std::isfinite(x) && std::isfinite(y) && std::isfinite(z);
+		return std::isfinite(pitch) && std::isfinite(yaw) && std::isfinite(roll);
 	}
 
 	void Invalidate()
 	{
-		x = y = z = std::numeric_limits<float>::infinity();
+		pitch = yaw = roll = std::numeric_limits<float>::infinity();
 	}
 
 	void Reset()
 	{
-		x = y = z = 0.0f;
+		pitch = yaw = roll = 0.0f;
 	}
 
 	float& operator[](int i)
@@ -300,71 +300,71 @@ public:
 
 	bool operator==(const QAngle& src) const
 	{
-		return (src.x == x) && (src.y == y) && (src.z == z);
+		return (src.pitch == pitch) && (src.yaw == yaw) && (src.roll == roll);
 	}
 
 	bool operator!=(const QAngle& src) const
 	{
-		return (src.x != x) || (src.y != y) || (src.z != z);
+		return (src.pitch != pitch) || (src.yaw != yaw) || (src.roll != roll);
 	}
 
 	QAngle& operator+=(const QAngle& v)
 	{
-		x += v.x; y += v.y; z += v.z;
+		pitch += v.pitch; yaw += v.yaw; roll += v.roll;
 		return *this;
 	}
 
 	QAngle& operator-=(const QAngle& v)
 	{
-		x -= v.x; y -= v.y; z -= v.z;
+		pitch -= v.pitch; yaw -= v.yaw; roll -= v.roll;
 		return *this;
 	}
 
 	QAngle& operator*=(float fl)
 	{
-		x *= fl;
-		y *= fl;
-		z *= fl;
+		pitch *= fl;
+		yaw *= fl;
+		roll *= fl;
 		return *this;
 	}
 
 	QAngle& operator*=(const QAngle& v)
 	{
-		x *= v.x;
-		y *= v.y;
-		z *= v.z;
+		pitch *= v.pitch;
+		yaw *= v.yaw;
+		roll *= v.roll;
 		return *this;
 	}
 
 	QAngle& operator/=(const QAngle& v)
 	{
-		x /= v.x;
-		y /= v.y;
-		z /= v.z;
+		pitch /= v.pitch;
+		yaw /= v.yaw;
+		roll /= v.roll;
 		return *this;
 	}
 
 	QAngle& operator+=(float fl)
 	{
-		x += fl;
-		y += fl;
-		z += fl;
+		pitch += fl;
+		yaw += fl;
+		roll += fl;
 		return *this;
 	}
 
 	QAngle& operator/=(float fl)
 	{
-		x /= fl;
-		y /= fl;
-		z /= fl;
+		pitch /= fl;
+		yaw /= fl;
+		roll /= fl;
 		return *this;
 	}
 
 	QAngle& operator-=(float fl)
 	{
-		x -= fl;
-		y -= fl;
-		z -= fl;
+		pitch -= fl;
+		yaw -= fl;
+		roll -= fl;
 		return *this;
 	}
 
@@ -381,7 +381,7 @@ public:
 			res /= l;
 		}
 		else {
-			res.x = res.y = res.z = 0.0f;
+			res.pitch = res.yaw = res.roll = 0.0f;
 		}
 		return res;
 	}
@@ -390,9 +390,9 @@ public:
 	{
 		QAngle delta;
 
-		delta.x = x - vOther.x;
-		delta.y = y - vOther.y;
-		delta.z = z - vOther.z;
+		delta.pitch = pitch - vOther.pitch;
+		delta.yaw = yaw - vOther.yaw;
+		delta.roll = roll - vOther.roll;
 
 		return delta.Length();
 	}
@@ -401,77 +401,77 @@ public:
 	{
 		QAngle delta;
 
-		delta.x = x - vOther.x;
-		delta.y = y - vOther.y;
-		delta.z = z - vOther.z;
+		delta.pitch = pitch - vOther.pitch;
+		delta.yaw = yaw - vOther.yaw;
+		delta.roll = roll - vOther.roll;
 
 		return delta.LengthSqr();
 	}
 
 	float Dot(const QAngle& vOther) const
 	{
-		return (x * vOther.x + y * vOther.y + z * vOther.z);
+		return (pitch * vOther.pitch + yaw * vOther.yaw + roll * vOther.roll);
 	}
 
 	float Length() const
 	{
-		return sqrt(x * x + y * y + z * z);
+		return sqrt(pitch * pitch + yaw * yaw + roll * roll);
 	}
 
 	float LengthSqr(void) const
 	{
-		return (x * x + y * y + z * z);
+		return (pitch * pitch + yaw * yaw + roll * roll);
 	}
 
 	float Length2D() const
 	{
-		return sqrt(x * x + y * y);
+		return sqrt(pitch * pitch + yaw * yaw);
 	}
 
 	QAngle& operator=(const QAngle& vOther)
 	{
-		x = vOther.x; y = vOther.y; z = vOther.z;
+		pitch = vOther.pitch; yaw = vOther.yaw; roll = vOther.roll;
 		return *this;
 	}
 
 	QAngle operator-(void) const
 	{
-		return QAngle(-x, -y, -z);
+		return QAngle(-pitch, -yaw, -roll);
 	}
 
 	QAngle operator+(const QAngle& v) const
 	{
-		return QAngle(x + v.x, y + v.y, z + v.z);
+		return QAngle(pitch + v.pitch, yaw + v.yaw, roll + v.roll);
 	}
 
 	QAngle operator-(const QAngle& v) const
 	{
-		return QAngle(x - v.x, y - v.y, z - v.z);
+		return QAngle(pitch - v.pitch, yaw - v.yaw, roll - v.roll);
 	}
 
 	QAngle operator*(float fl) const
 	{
-		return QAngle(x * fl, y * fl, z * fl);
+		return QAngle(pitch * fl, yaw * fl, roll * fl);
 	}
 
 	QAngle operator*(const QAngle& v) const
 	{
-		return QAngle(x * v.x, y * v.y, z * v.z);
+		return QAngle(pitch * v.pitch, yaw * v.yaw, roll * v.roll);
 	}
 
 	QAngle operator/(float fl) const
 	{
-		return QAngle(x / fl, y / fl, z / fl);
+		return QAngle(pitch / fl, yaw / fl, roll / fl);
 	}
 
 	QAngle operator/(const QAngle& v) const
 	{
-		return QAngle(x / v.x, y / v.y, z / v.z);
+		return QAngle(pitch / v.pitch, yaw / v.yaw, roll / v.roll);
 	}
 
-	float x;
-	float y;
-	float z;
+	float pitch;
+	float yaw;
+	float roll;
 };
 
 struct CViewVectors

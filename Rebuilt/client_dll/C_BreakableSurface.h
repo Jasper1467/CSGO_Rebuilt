@@ -1,6 +1,6 @@
 #pragma once
 
-enum EdgeType_t
+enum EdgeType_e
 {
 	EDGE_TYPE_NONE = 0x0,
 	EDGE_TYPE_FULL = 0x1,

@@ -64,14 +64,14 @@ struct CMoveData
 	Vector m_vecAbsOrigin;
 };
 
-enum SpeedCropped_t
+enum SpeedCropped_e
 {
 	SPEED_CROPPED_RESET = 0x0,
 	SPEED_CROPPED_DUCK = 0x1,
 	SPEED_CROPPED_WEAPON = 0x2,
 };
 
-enum IntervalType_t
+enum IntervalType_e
 {
 	INTERVAL_TYPE_GROUND = 0x0,
 	INTERVAL_TYPE_STUCK = 0x1,
@@ -80,7 +80,7 @@ enum IntervalType_t
 };
 
 
-// TEMP NOTE?: jump impulse = sqrt(2 * gravity * height)
+// NOTE: jump impulse = sqrt(2 * gravity * height)
 
 class CGameMovement
 {

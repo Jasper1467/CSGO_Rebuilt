@@ -5,6 +5,7 @@ void __cdecl Msg(char const*, ...);
 int Warning(const char*, ...);
 int DevWarning(int, const char*, ...);
 int Error(const char*, ...);
+int ConDMsg(const char*, ...);
 
 double __cdecl Plat_FloatTime();
 
@@ -21,4 +22,5 @@ public:
 	void ExitScope();
 };
 
-CVProfile* g_VProfCurrentProfile; // Interface?
+CVProfile* g_VProfCurrentProfile; // Interface
+

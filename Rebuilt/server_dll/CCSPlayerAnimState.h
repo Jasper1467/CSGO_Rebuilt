@@ -40,8 +40,8 @@ public:
 	bool m_bFiring;
 	int m_nFireSequence;
 	float m_flFireCycle;
-	PlayerAnimEvent_t m_nDelayedFireEvent;
-	PlayerAnimEvent_t m_nActiveFireEvent;
+	PlayerAnimEvent_e m_nDelayedFireEvent;
+	PlayerAnimEvent_e m_nActiveFireEvent;
 	char pad3[16];
 	bool m_bTryingToRunAfterJump;
 	int m_nCurrentActivity;

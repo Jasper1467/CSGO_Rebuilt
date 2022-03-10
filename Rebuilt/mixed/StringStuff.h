@@ -162,3 +162,8 @@ const char* V_GetFileName(const char* szName)
 
     return result;
 }
+
+bool V_IsAbsolutePath(const char* szPath)
+{
+   return *szPath && szPath[1] != 0 && (*szPath == ':' || (*szPath == '/' || *szPath == '\\') && (*szPath == '/' || *szPath == '\\'));
+}

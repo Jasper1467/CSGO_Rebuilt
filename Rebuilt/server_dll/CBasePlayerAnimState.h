@@ -21,7 +21,7 @@ public:
 	float m_flMaxBodyYawDegrees;
 	float m_flMaxBodyYawDegreesCorrectionAmount;
 	char pad1[8];
-	LegAnimType_t m_LegAnimType;
+	LegAnimType_e m_LegAnimType;
 	bool m_bUseAimSequences;
 	CBaseAnimatingOverlay* m_pOuter;
 	float m_flEyeYaw;
@@ -40,6 +40,6 @@ public:
 	float m_flMaxGroundSpeed;
 	float m_flLastAnimationStateClearTime;
 	char pad5[8];
-	Activity_t m_nCurrentMainSequenceActivity;
+	Activity_e m_nCurrentMainSequenceActivity;
 	float m_flGaitYaw;
 };

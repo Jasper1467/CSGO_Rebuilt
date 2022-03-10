@@ -34,13 +34,56 @@ struct aimmatrix_transition_t
 
 struct animstate_pose_param_cache_t
 {
+	// client.dll [actual address in first opcode] E8 ? ? ? ? 8B 46 60 83 B8 9C 29 00 00 00 74 6D
+	float GetValue(C_CSPlayer* pPlayer)
+	{
+		int v3; // esi
+		double result; // st7
+
+		if (!m_bInitialized && (Init(pPlayer, m_szName), !m_bInitialized))
+			return result;
+
+		if (!pPlayer)
+			return result;
+
+		(*(void(__thiscall**)(int))(*(_DWORD*)g_pMdlCache + 132))(g_pMdlCache);// BeginLock
+
+		result = pPlayer->GetPoseParameter(m_nIndex);
+
+		(*(void (__usercall**)(int@<ecx>, double@<st0>))(*(_DWORD*)g_pMdlCache + 136))(g_pMdlCache, result);// EndLock
+		return result;
+	}
+
+	// client.dll [actual address in first opcode] E8 ? ? ? ? 80 BF B0 01 00 00 00
+	bool Init(C_CSPlayer* pPlayer, const char* szName)
+	{
+		const char* v5 = szName;
+		m_szName = szName;
+		if (!pPlayer->GetModelPtr())
+			v5 = szName;
+
+		CStudioHdr* pModelPtr = pPlayer->m_pModelPtr;
+		if (!pModelPtr)
+			pModelPtr = 0;
+
+		m_nIndex = pPlayer->LookupPoseParameter(pModelPtr, v5);
+		if (m_nIndex != -1)
+			m_bInitialized = true;
+
+		(*(void(__thiscall**)(int))(*(_DWORD*)g_pMdlCache + 132))(g_pMdlCache);// BeginLock
+
+		(*(void(__thiscall**)(int))(*(_DWORD*)g_pMdlCache + 136))(g_pMdlCache);// EndLock
+
+		return m_bInitialized;
+	}
+
 	bool m_bInitialized;
-	char pad_01[3];
+	char pad[3];
 	int m_nIndex;
-	char* m_szPoseParameter;
+	const char* m_szName;
 };
 
-enum AnimationLayer_t
+enum AnimationLayer_e
 {
 	LAYER_AIMMATRIX = 0x0,
 	LAYER_WEAPON_ACTION = 0x1,
@@ -58,7 +101,7 @@ enum AnimationLayer_t
 	LAYER_COUNT = 0xD,
 };
 
-enum AnimLayerFlag_t
+enum AnimLayerFlag_e
 {
 	ANIM_LAYER_FLAG_ACTIVE = 0x1,
 	ANIM_LAYER_FLAG_AUTOKILL = 0x2,
@@ -69,14 +112,14 @@ enum AnimLayerFlag_t
 	ANIM_LAYER_FLAG_NOEVENTS = 0x40,
 };
 
-enum LegAnimType_t
+enum LegAnimType_e
 {
 	LEGANIM_9WAY = 0x0,
 	LEGANIM_8WAY = 0x1,
 	LEGANIM_GOLDSRC = 0x2,
 };
 
-enum PlayerAnimEvent_t
+enum PlayerAnimEvent_e
 {
 	PLAYERANIMEVENT_FIRE_GUN_PRIMARY = 0x0,
 	PLAYERANIMEVENT_FIRE_GUN_PRIMARY_OPT = 0x1,
@@ -100,7 +143,7 @@ enum PlayerAnimEvent_t
 	PLAYERANIMEVENT_COUNT = 0x13,
 };
 
-enum AnimTag_t
+enum AnimTag_e
 {
 	ANIMTAG_UNINITIALIZED = 0x0,
 	ANIMTAG_STARTCYCLE_N = 0x1,

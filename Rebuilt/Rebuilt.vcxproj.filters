@@ -67,6 +67,8 @@
     <ClInclude Include="client_dll\CGameUI.h" />
     <ClInclude Include="server_dll\CCSEntitySpotting.h" />
     <ClInclude Include="client_dll\CInput.h" />
+    <ClInclude Include="mixed\CMemAlloc.h" />
+    <ClInclude Include="engine_dll\CDownloadListGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />

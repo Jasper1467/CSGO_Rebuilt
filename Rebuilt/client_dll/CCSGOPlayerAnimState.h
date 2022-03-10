@@ -33,8 +33,8 @@ struct C_AnimationLayer
 	float m_flLayerAnimtime;
 	float m_flLayerFadeOuttime;
 	CStudioHdr* m_pDispatchedStudioHdr;
-	Activity_t m_nDispatchedSrc;
-	Activity_t m_nDispatchedDst;
+	Activity_e m_nDispatchedSrc;
+	Activity_e m_nDispatchedDst;
 	int m_nOrder;
 	int m_nSequence;
 	float m_flPrevCycle;
