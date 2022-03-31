@@ -20,3 +20,5 @@ public:
 		return RandomFloatExp(flMin, flMax, flExponent);
 	}
 };
+
+inline CEngineUniformRandomStream* g_pRandom;

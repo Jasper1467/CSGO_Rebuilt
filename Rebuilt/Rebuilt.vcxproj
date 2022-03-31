@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="client_dll\CClientSideEffect.h" />
     <ClInclude Include="client_dll\CCSGOPlayerAnimState.h" />
     <ClInclude Include="client_dll\CBoneSnapshot.h" />
     <ClInclude Include="client_dll\CCSWeaponSystem.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="client_dll\CPrediction.h" />
     <ClInclude Include="client_dll\CUserCmd.h" />
     <ClInclude Include="client_dll\C_BaseAnimating.h" />
+    <ClInclude Include="client_dll\C_BaseCombatWeapon.h" />
     <ClInclude Include="client_dll\C_BaseEntity.h" />
     <ClInclude Include="client_dll\C_BasePlayer.h" />
     <ClInclude Include="client_dll\C_BreakableSurface.h" />

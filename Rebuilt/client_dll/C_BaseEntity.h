@@ -3,6 +3,26 @@
 
 #define MULTIPLAYER_BACKUP 150
 
+struct VarMapEntry_t
+{
+	unsigned __int16 m_nType;
+	unsigned __int16 m_bNeedsToInterpolate;
+	void* m_pData;
+	void* m_pWatcher;
+};
+
+struct VarMapping_t
+{
+	VarMapping_t()
+	{
+		m_nInterpolatedEntries = 0;
+	}
+
+	CUtlVector<VarMapEntry_t> m_Entries;
+	int m_nInterpolatedEntries;
+	float m_flLastInterpolationTime;
+};
+
 class C_BaseEntity
 {
 public:
@@ -33,10 +53,17 @@ public:
 		Remove();
 	}
 
+	VarMapping_t* GetVarMapping()
+	{
+		return &m_VarMap;
+	}
+
 	enum
 	{
 		SLOT_ORIGINALDATA = -1
 	};
+
+	VarMapping_t m_VarMap; // this + 0x9
 
 	int m_iHealth; // this + 0x100
 	int m_nSurfaceType; // this + 0x280
