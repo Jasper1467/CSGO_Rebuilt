@@ -34,7 +34,7 @@ public:
     };
 };
 
-class INetChannel : INetChannelInfo
+class INetChannel : public INetChannelInfo
 {
 public:
    

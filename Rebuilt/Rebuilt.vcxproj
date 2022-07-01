@@ -44,6 +44,7 @@
     <ClInclude Include="client_dll\IPredictionSystem.h" />
     <ClInclude Include="engine_dll\CClientState.h" />
     <ClInclude Include="engine_dll\CDownloadListGenerator.h" />
+    <ClInclude Include="engine_dll\CEngine.h" />
     <ClInclude Include="engine_dll\CEngineAPI.h" />
     <ClInclude Include="engine_dll\CEngineClient.h" />
     <ClInclude Include="engine_dll\CEngineTrace.h" />
@@ -62,6 +63,7 @@
     <ClInclude Include="mixed\CMaterialSystem.h" />
     <ClInclude Include="mixed\CMemAlloc.h" />
     <ClInclude Include="mixed\Color.h" />
+    <ClInclude Include="mixed\CreateInterface.h" />
     <ClInclude Include="mixed\CUserCmd.h" />
     <ClInclude Include="mixed\CUtlVector.h" />
     <ClInclude Include="mixed\C_CSPlayer.h" />
@@ -84,6 +86,7 @@
     <ClInclude Include="server_dll\CCSPlayerAnimState.h" />
     <ClInclude Include="server_dll\CEngineTrace.h" />
     <ClInclude Include="server_dll\CCSGameStats.h" />
+    <ClInclude Include="server_dll\CInferno.h" />
     <ClInclude Include="server_dll\CLagCompensationManager.h" />
     <ClInclude Include="server_dll\CMoveHelperServer.h" />
     <ClInclude Include="server_dll\CTakeDamageInfo.h" />
@@ -103,6 +106,7 @@
     <ClCompile Include="client_dll\C_BasePlayer.cpp" />
     <ClCompile Include="client_dll\C_CSGameRules.cpp" />
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
+    <ClCompile Include="engine_dll\CEngineAPI.cpp" />
     <ClCompile Include="engine_dll\CEngineClient.cpp" />
     <ClCompile Include="engine_dll\CEngineVGui.cpp" />
     <ClCompile Include="engine_dll\CNetChan.cpp" />

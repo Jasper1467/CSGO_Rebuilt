@@ -5,12 +5,6 @@
 
 struct aimmatrix_transition_t
 {
-	float m_flDurationStateHasBeenValid;
-	float m_flDurationStateHasBeenInValid;
-	float m_flHowLongToWaitUntilTransitionCanBlendIn;
-	float m_flHowLongToWaitUntilTransitionCanBlendOut;
-	float m_flBlendValue;
-
 	void UpdateTransitionState(float flTimeInterval, float flSpeed, bool bStateShouldBeValid)
 	{
 		if (bStateShouldBeValid)
@@ -30,6 +24,12 @@ struct aimmatrix_transition_t
 				m_flBlendValue = Approach(0.f, m_flBlendValue, flSpeed);
 		}
 	}
+
+	float m_flDurationStateHasBeenValid;
+	float m_flDurationStateHasBeenInValid;
+	float m_flHowLongToWaitUntilTransitionCanBlendIn;
+	float m_flHowLongToWaitUntilTransitionCanBlendOut;
+	float m_flBlendValue;
 };
 
 struct animstate_pose_param_cache_t

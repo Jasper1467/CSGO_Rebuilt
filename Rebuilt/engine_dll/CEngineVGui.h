@@ -1,6 +1,5 @@
 #pragma once
-
-typedef void* (__cdecl* CreateInterfaceFn)(const char* szName, int* pReturnCode);
+#include "../mixed/CreateInterface.h"
 
 class CSysModule;
 class CStaticPanel;

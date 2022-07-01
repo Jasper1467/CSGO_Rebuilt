@@ -71,6 +71,9 @@
     <ClInclude Include="engine_dll\CDownloadListGenerator.h" />
     <ClInclude Include="client_dll\CClientSideEffect.h" />
     <ClInclude Include="client_dll\C_BaseCombatWeapon.h" />
+    <ClInclude Include="server_dll\CInferno.h" />
+    <ClInclude Include="mixed\CreateInterface.h" />
+    <ClInclude Include="engine_dll\CEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client_dll\C_CSPlayer.cpp" />
@@ -98,5 +101,6 @@
     <ClCompile Include="client_dll\CGameUI.cpp" />
     <ClCompile Include="client_dll\CPrediction.cpp" />
     <ClCompile Include="client_dll\CInput.cpp" />
+    <ClCompile Include="engine_dll\CEngineAPI.cpp" />
   </ItemGroup>
 </Project>

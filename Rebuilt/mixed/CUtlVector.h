@@ -200,7 +200,7 @@ public:
 
 		GrowVector();
 		ShiftElementsRight(elem);
-		CopyConstruct(&Element(elem), src);
+		CopyConstruct(&element(elem), src);
 		return elem;
 	}
 
@@ -210,7 +210,7 @@ public:
 	}
 
 	int Find(const T& src) const {
-		for (int i = 0; i < Count(); ++i) {
+		for (int i = 0; i < count(); ++i) {
 			if (Element(i) == src)
 				return i;
 		}
@@ -219,7 +219,7 @@ public:
 
 	void Remove(int elem) {
 		Destruct(&Element(elem));
-		shift_elements_left(elem);
+		ShiftElementsLeft(elem);
 		--m_size;
 	}
 

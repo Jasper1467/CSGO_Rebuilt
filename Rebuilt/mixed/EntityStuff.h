@@ -1005,7 +1005,7 @@ enum Activity_e
 	ACT_INVALID = 0xFFFFFFFF,
 };
 
-enum EFlags_t
+enum EFlags_e
 {
 	EFL_KILLME = 0x1,
 	EFL_DORMANT = 0x2,
@@ -1041,7 +1041,7 @@ enum EFlags_t
 	EFL_NO_DAMAGE_FORCES = 0x80000000,
 };
 
-enum EntityFlags_t
+enum EntityFlags_e
 {
 	FL_ONGROUND = 0x1,
 	FL_DUCKING = 0x2,
@@ -1077,7 +1077,7 @@ enum EntityFlags_t
 	FL_UNBLOCKABLE_BY_PLAYER = 0x80000000,
 };
 
-enum InvalidatePhysicsBits_t
+enum InvalidatePhysicsBits_e
 {
 	POSITION_CHANGED = 0x1,
 	ANGLES_CHANGED = 0x2,
@@ -1087,7 +1087,7 @@ enum InvalidatePhysicsBits_t
 	SEQUENCE_CHANGED = 0x20,
 };
 
-enum LifeState_t
+enum LifeState_e
 {
 	LIFE_ALIVE = 0x0,
 	LIFE_DYING = 0x1,
@@ -1095,10 +1095,28 @@ enum LifeState_t
 	MAX_LIFESTATE = 0x3,
 };
 
-enum WaterLevel_t
+enum WaterLevel_e
 {
 	WL_NotInWater = 0x0,
 	WL_Feet = 0x1,
 	WL_Waist = 0x2,
 	WL_Eyes = 0x3,
+};
+
+enum MoveType_e
+{
+	MOVETYPE_NONE = 0x0,
+	MOVETYPE_ISOMETRIC = 0x1,
+	MOVETYPE_WALK = 0x2,
+	MOVETYPE_STEP = 0x3,
+	MOVETYPE_FLY = 0x4,
+	MOVETYPE_FLYGRAVITY = 0x5,
+	MOVETYPE_VPHYSICS = 0x6,
+	MOVETYPE_PUSH = 0x7,
+	MOVETYPE_NOCLIP = 0x8,
+	MOVETYPE_LADDER = 0x9,
+	MOVETYPE_OBSERVER = 0xA,
+	MOVETYPE_CUSTOM = 0xB,
+	MOVETYPE_LAST = 0xB,
+	MOVETYPE_MAX_BITS = 0x4,
 };
