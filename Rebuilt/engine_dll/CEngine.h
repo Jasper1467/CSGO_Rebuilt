@@ -1,8 +1,24 @@
 #pragma once
 
+enum QuitState_e
+{
+	QUIT_NOTQUITTING = 0x0,
+	QUIT_TODESKTOP = 0x1,
+	QUIT_RESTART = 0x2,
+};
+
 class CEngine
 {
 public:
+	enum EngineState_e
+	{
+		DLL_INACTIVE = 0x0,
+		DLL_ACTIVE = 0x1,
+		DLL_CLOSE = 0x2,
+		DLL_RESTART = 0x3,
+		DLL_PAUSED = 0x4,
+	};
+
 	CEngine(void) {} // 1
 
 	bool Load(bool bDedicated, const char* szRootDir); // 2

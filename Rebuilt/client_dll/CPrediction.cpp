@@ -15,7 +15,7 @@ void CPrediction::Update(int nStartFrame, bool bValidFrame, int nIncomingAck, in
 
     m_bEnginePaused = g_pEngineClient->IsPaused();
 
-    bool bReceivedNewWorldUpdate = 1;
+    bool bReceivedNewWorldUpdate = true;
     m_flLastServerWorldTimeStamp = g_pEngineClient->GetLastTimeStamp();
     if (m_nPreviousStartFrame == nStartFrame && (cl_pred_optimize.GetBool()) && (cl_predict.GetBool()))
         bReceivedNewWorldUpdate = m_flLastServerWorldTimeStamp == g_pEngineClient->GetLastTimeStamp();

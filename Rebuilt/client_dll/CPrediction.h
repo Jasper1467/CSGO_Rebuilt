@@ -26,7 +26,7 @@ public:
 	struct Split_t
 	{
 		bool m_bIsFirstTimePredicted;
-		std::byte pad0[3];
+		char pad0[3];
 		int m_nCommandsPredicted;
 		int m_nServerCommandsAcknowledged;
 		int m_nPreviousAckHadErrors;

@@ -32,11 +32,12 @@
 
 #define VELOCITY_RECOVERY_RATE 0.4f
 
-struct CMoveData
+class CMoveData
 {
-	bool m_bFirstRunOfFunctions;
-	bool m_bGameCodeMovedPlayer;
-	bool m_bNoAirControl;
+public:
+	bool m_bFirstRunOfFunctions : 1;
+	bool m_bGameCodeMovedPlayer : 1;
+	bool m_bNoAirControl : 1;
 	uintptr_t m_hPlayerHandle;
 	int m_nImpulseCommand;
 	QAngle m_angViewAngles;

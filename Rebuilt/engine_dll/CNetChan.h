@@ -51,11 +51,17 @@ public:
 #define NET_RATE_MIN 16000.f
 #define NET_RATE_MAX 786432.f
 
+enum PacketFlags_e
+{
+    PACKET_FLAG_RELIABLE = 0x1,
+};
+
 struct netpacket_t
 {
-    char pad[49];
+    char pad[52];
     bf_read m_Message;
-    char pad1[36];
+    char pad1[35];
+    int m_nSize;
     int m_nWireSize;
 };
 
@@ -72,8 +78,12 @@ public:
     void SetTimeout(float flSeconds, bool bForceExact); // 31
     void SetChoked(); // 45
 
+    void GetSequenceData(int& nOutSequenceNr, int& nInSequenceNr, int& nOutSequenceNrAck);
+
     struct netframe_header_t
     {
+        float m_flTime;
+        int m_nSize;
         __int16 m_nChoked;
         bool m_bValid;
         float m_flLatency;
@@ -84,7 +94,7 @@ public:
         int m_nDropped;
         float m_flAvgLatency;
         float m_flInterpolationAmount;
-        unsigned __int16 m_nMsgGroups[16];
+        unsigned __int16 m_nMsgGroups[INetChannelInfo::TOTAL];
     };
 
     struct netflow_t
@@ -99,8 +109,8 @@ public:
         int m_nTotalPackets;
         int m_nTotalBytes;
         int m_nCurrentIndex;
-        netframe_header_t m_FrameHeaders[128];
-        netframe_t m_Frames[128];
+        netframe_header_t m_FrameHeaders[NET_FRAMES_BACKUP];
+        netframe_t m_Frames[NET_FRAMES_BACKUP];
         netframe_t* m_pCurrentFrame;
     };
 
@@ -116,7 +126,9 @@ public:
     int m_nChokedPackets;
     char pad0[108];
     int m_nSocket;
-    char pad1[105];
+    char padqzdqzd[4];
+    bool m_bWasLastMessageReliable;
+    char pad1[100];
     float m_flLastReceived;
     double m_dbConnectTime;
     int m_nRate;
@@ -127,6 +139,36 @@ public:
     bool m_bCompress;
     bool m_bStreamActive;
     netflow_t m_DataFlow[MAX_FLOWS];
-    char pad4[2152];
-    float m_flTimeout;
+    char padqzdzqd[104];
+    float m_flTimeOut;
+    char pad4[32];
+    float m_flRemoteFrameTime;
+    float m_flRemoteFrameTimeStdDeviation;
+    float m_flRemoteFrameStartTimeStdDeviation;
+    int m_nMaxRoutablePayloadSize;
+    char pad5[2052];
+    int m_nSplitPacketSequence;
+    INetChannel* m_pActiveChannel;
+};
+
+class INetMessage;
+
+class CNetChanParanoidMode
+{
+public:
+    struct MessageItem_t
+    {
+        void Dump();
+
+        INetMessage* m_pMsg;
+        size_t m_nMessageSize;
+        int m_nType;
+        int m_nGroup;
+        int m_nStartBit;
+        int m_nEndBit;
+        unsigned char m_Message[128];
+        char m_szName[32];
+        char m_szDesc[128];
+    };
+
 };
